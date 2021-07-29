@@ -2,42 +2,42 @@
 const questionsEasy = [{
     "question": "Clam Chowder originated in which country?",
     "answer": ["Australia", "United Kingdom", "USA", "Spain"],
-    "final": 2
+    "final": "USA"
 },
 {
     "question": "What fast food restaurant boasts that you can \"Have it your way\"?",
     "answer": ["Hardees", "In and Out", "Burger King", "Mickey D's"],
-    "final": 2
+    "final": "Burger King"
 },
 {
     "question": "How many secret herbs and spices are there in the Colonel's recipe?",
     "answer": ["11", "At least a million", "Infinity", "Zero"],
-    "final": 0
+    "final": "11"
 },
 {
     "question": "What essential nutrient do you get from meat, poultry, eggs, and fish?",
     "answer": ["Brawndo", "Protein", "Peanut Butter", "Gainz"],
-    "final": 1
+    "final": "Protein"
 },
 {
     "question": "What bean that originated in East Asia is used for miso, oil, and tofu?",
     "answer": ["Lima Bean", "Magic Bean", "Peanut", "Soy Bean"],
-    "final": 3
+    "final": "Soy Bean"
 },
 {
     "question": "Who is the celebrity Chef that is the host of Hell's Kitchen?",
     "answer": ["Max Robbins", "Gordon Ramsay", "The Swedish Chef", "Emeril Lagasse"],
-    "final": 1
+    "final": "Gordon Ramsay"
 },
 {
     "question": "What is the main ingredient in an omelette?",
     "answer": ["Egg", "Love", "Sugar", "Egg Shells"],
-    "final": 0
+    "final": "Egg"
 },
 {
     "question": "Who is the famous mascot for McDonald's?",
     "answer": ["Ronald McDonald", "Wendy Thomas", "Caillou", "Naruto"],
-    "final": 0
+    "final": "Ronald McDonald"
 },
 ]
 const questionsMed = [{
@@ -174,7 +174,6 @@ const questionsHard = [{
         let answerBTN = document.createElement('button');
         answerCont.appendChild(answerBTN);
         answerBTN.setAttribute('class', 'answer');
-        // answerBTN.innerHTML = ` Answer ${[i]}`
     }
     //nodelist with buttons in it
     let answerButtons = document.querySelectorAll('.answer')
@@ -305,15 +304,11 @@ if (!questionArray.length) {
 let random = Math.floor(Math.random() * questionArray.length);
 let val = questionArray[random];
 questionArray.splice(random, 1);
-console.log(val)
-console.log(questionArray)
 question.innerHTML = questionsEasy[val].question
 for (let i = 0; i < answerButtons.length; i++) {
     answerButtons[i].innerHTML = questionsEasy[val].answer[i]
 } 
 }
-
-
 
 
 
@@ -337,7 +332,9 @@ startGame.addEventListener('click',getStarted)
 
 
 
-
+//right and wrong score counter
+let rightAns = 0;
+let wrongAns = 0;
 //answer buttons take you to the right answer modal if it is the right answer
 const chooseAnswer = (event) => {
 //random food joke generator!//got API to log and render
@@ -360,18 +357,27 @@ fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/ra
 	console.error(err);
 });
     //logic for if right answer == question.final
+for (let i = 0; i < questionsEasy.length; i++){
+    if (event.target.innerHTML == questionsEasy[i].final) {
+        rightModal.style.opacity = "1";
+    } else {
+        wrongModal.style.opacity = "1"
+    }
+}
+
+
+console.log(questionsEasy)
+
+
+
+
     //goes within logic- either brings up right modal or wrong modal
     trivia.style.opacity = "0";
-    rightModal.style.opacity = "1";
-    wrongModal.style.opacity = "1";
     //inserts the random trivia/joke into the right/wrong modal
     wrongModal.appendChild(randJoke1);
     rightModal.appendChild(randJoke);
     //if right/wrong modal opacity = 1 then generate random trivia
 
-
-
-    console.log(counter)
 }
 answerButtons.forEach(button => button.addEventListener('click',chooseAnswer))
 
