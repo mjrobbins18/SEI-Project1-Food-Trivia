@@ -1,22 +1,4 @@
 
-//random food joke generator!//got API to log and render
-fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "82af09fd1emsh8ef1df922508a8bp1beb9ajsn7f726e7510b4",
-		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-	}
-})
-.then(res => {
-    return res.json()
-})
-.then(res => {
-    console.log(res.text)
-})
-.catch(err => {
-	console.error(err);
-});
-
 //////create all elements
     let body = document.querySelector('body');
     ////homepage modal
@@ -74,7 +56,6 @@ fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/ra
     rightModal.setAttribute('class', 'right');
     //random trivia/joke from api
     let randJoke = document.createElement('p');
-    rightModal.appendChild(randJoke);
     randJoke.setAttribute('class', 'joke');
     //image
     let rightPic = document.createElement('img');
@@ -103,6 +84,9 @@ fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/ra
     wrongModal.appendChild(wrongMess);
     wrongMess.setAttribute('class', 'wrongMess');
     wrongMess.innerHTML = "Nice Try, You'll Get it Next time!"
+    //random joke/trivia for wrong modal
+    let randJoke1 = document.createElement('p');
+    randJoke1.setAttribute('class', 'joke');
     //next question
     let next2 = document.createElement('button');
     wrongModal.appendChild(next2);
@@ -176,12 +160,33 @@ startGame.addEventListener('click',getStarted)
 
 //answer buttons take you to the right answer modal if it is the right answer
 const chooseAnswer = (event) => {
+//random food joke generator!//got API to log and render
+fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "82af09fd1emsh8ef1df922508a8bp1beb9ajsn7f726e7510b4",
+		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+	}
+})
+.then(res => {
+    return res.json()
+})
+.then(res => {
+    randJoke.innerHTML = res.text;
+    randJoke1.innerHTML = res.text;
+    console.log(res.text)
+})
+.catch(err => {
+	console.error(err);
+});
     //logic for if right answer == question.final
     //goes within logic- either brings up right modal or wrong modal
     trivia.style.opacity = "0";
     rightModal.style.opacity = "1";
     wrongModal.style.opacity = "1";
     //inserts the random trivia/joke into the right/wrong modal
+    wrongModal.appendChild(randJoke1);
+    rightModal.appendChild(randJoke);
     //if right/wrong modal opacity = 1 then generate random trivia
 
 
@@ -230,3 +235,4 @@ playAgain.addEventListener('click',replay)
 
 
   //game logic
+  
