@@ -246,16 +246,26 @@ const questionsHard = [{
     scoreBoard.appendChild(playerName);
     playerName.setAttribute('class', 'player');
     playerName.innerHTML = "Player 1"
-    //score-Right
+    //Right-score div
     let scoreRight = document.createElement('div');
     scoreBoard.appendChild(scoreRight);
     scoreRight.setAttribute('class', 'score rightScore');
     scoreRight.innerHTML = `<strong>Right</strong>`;
-    //score-Wrong
+    //right score number
+    let scoreRightNum = document.createElement('div');
+    scoreRight.appendChild(scoreRightNum);
+    scoreRightNum.setAttribute('class', 'rightNum')
+    scoreRightNum.innerHTML = 0;
+    //Wrong score div
     let scoreWrong = document.createElement('div');
     scoreBoard.appendChild(scoreWrong);
     scoreWrong.setAttribute('class', 'score wrongScore');
     scoreWrong.innerHTML = `<strong>Wrong</strong>`;
+    //wrong score number
+    let scoreWrongNum = document.createElement('div');
+    scoreWrong.appendChild(scoreWrongNum);
+    scoreWrongNum.setAttribute('class', 'wrongNum');
+    scoreWrongNum.innerHTML = 0;
     ////Win Screen Modal
     let winScreen = document.createElement('div');
     document.body.appendChild(winScreen);
@@ -356,15 +366,26 @@ fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/ra
 .catch(err => {
 	console.error(err);
 });
-    //logic for if right answer == question.final
-for (let i = 0; i < questionsEasy.length; i++){
-    if (event.target.innerHTML == questionsEasy[i].final) {
+
+
+
+
+
+
+
+
+//logic for guessing right or wrong answer and increases numbers on scoreboard
+let isCorrect = questionsEasy.map(item => event.target.innerHTML == item.final)
+console.log(isCorrect)
+    if (isCorrect.includes(true)) {
         rightModal.style.opacity = "1";
+        rightAns += 1
     } else {
         wrongModal.style.opacity = "1"
+        wrongAns += 1
     }
-}
-
+scoreWrongNum.innerHTML = wrongAns;
+scoreRightNum.innerHTML = rightAns;
 
 console.log(questionsEasy)
 
