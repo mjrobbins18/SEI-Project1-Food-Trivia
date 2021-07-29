@@ -1,3 +1,45 @@
 body {
     background: aqua;
 }
+
+.homePage {
+    border: 2px solid black;
+    height: 400px;
+    width: 400px;
+    text-align: center;
+}
+
+.trivia {
+    border: 2px solid black;
+    height: 400px;
+    width: 400px;
+    text-align: center;
+    /* display: flex;
+    justify-content: center;
+    align-items: baseline; */
+}
+.right {
+    border: 2px solid black;
+    height: 400px;
+    width: 400px;
+    text-align: center;
+}
+.wrong {
+
+    border: 2px solid black;
+    height: 400px;
+    width: 400px;
+    text-align: center;
+}
+.scoreBoard {
+    border: 2px solid black;
+    height: 400px;
+    width: 200px;
+    text-align: center;
+}
+.winScreen {
+    border: 2px solid black;
+    height: 400px;
+    width: 400px;
+    text-align: center;
+}
