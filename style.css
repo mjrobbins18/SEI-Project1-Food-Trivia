@@ -7,6 +7,7 @@ body {
     height: 400px;
     width: 400px;
     text-align: center;
+    opacity: 0;
 }
 
 .trivia {
@@ -17,12 +18,14 @@ body {
     /* display: flex;
     justify-content: center;
     align-items: baseline; */
+    opacity: 0;
 }
 .right {
     border: 2px solid black;
     height: 400px;
     width: 400px;
     text-align: center;
+    opacity: 0;
 }
 .wrong {
 
@@ -30,16 +33,19 @@ body {
     height: 400px;
     width: 400px;
     text-align: center;
+    opacity: 0;
 }
 .scoreBoard {
     border: 2px solid black;
     height: 400px;
     width: 200px;
     text-align: center;
+    opacity: 0;
 }
 .winScreen {
     border: 2px solid black;
     height: 400px;
     width: 400px;
     text-align: center;
+    opacity: 0;
 }

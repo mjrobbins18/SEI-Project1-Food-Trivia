@@ -60,6 +60,7 @@ fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/ra
     let answerCont = document.createElement('div');
     trivia.appendChild(answerCont);
     answerCont.setAttribute('class', 'container');
+    let buttonBox = document.querySelectorAll('.container')
     //answer buttons - inserted with question
     for(let i =0; i < 4; i++) {
         let answerBTN = document.createElement('button');
@@ -107,11 +108,18 @@ fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/ra
     wrongModal.appendChild(next2);
     next2.innerHTML = "Next Question!";
     next2.setAttribute('class', 'button next wrongBTN')
+    //grab both of the next buttons
+    let nextBTN = document.querySelectorAll('.next')
     //score board modal
     let scoreBoard = document.createElement('div');
     document.body.appendChild(scoreBoard);
     scoreBoard.setAttribute('class', 'scoreBoard');
     scoreBoard.innerHTML = `<strong>Score</strong>`;
+    //player name
+    let playerName = document.createElement('div');
+    scoreBoard.appendChild(playerName);
+    playerName.setAttribute('class', 'player');
+    playerName.innerHTML = "Player 1"
     //score-Right
     let scoreRight = document.createElement('div');
     scoreBoard.appendChild(scoreRight);
@@ -144,9 +152,81 @@ fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/ra
 
     console.log(body)
 
-    //game logic
+//modal functionality  
+
+//function that shows the homepage when it is loaded
+const loadHome = () => {
+    homePage.style.opacity = 1;
+}
+body.addEventListener('load',loadHome())
+
+//event handler for starting the game
+////enter's name into playerName
+////pulls up first question
+const getStarted = () => {
+    playerName.innerHTML = nameInput.value;
+    homePage.style.opacity = "0";
+    trivia.style.opacity = "1";
+    scoreBoard.style.opacity = "1";
+    //populate first question into trivia modal
+    //if triva.style.opacity === 1 then generate random question
+}
+//event listener for startGame button
+startGame.addEventListener('click',getStarted)
+
+//answer buttons take you to the right answer modal if it is the right answer
+const chooseAnswer = (event) => {
+    //logic for if right answer == question.final
+    //goes within logic- either brings up right modal or wrong modal
+    trivia.style.opacity = "0";
+    rightModal.style.opacity = "1";
+    wrongModal.style.opacity = "1";
+    //inserts the random trivia/joke into the right/wrong modal
+    //if right/wrong modal opacity = 1 then generate random trivia
+
+
+    //if we've done 5 quesionts then bring up winner screen
+    winScreen.style.opacity = "1";
+}
+buttonBox.forEach(button => button.addEventListener('click',chooseAnswer))
+
+//event handler to bring you from the right/wrong screen to the next question
+const nextQuestion = () => {
+    rightModal.style.opacity = "0";
+    wrongModal.style.opacity = "0";
+    trivia.style.opacity = "1";
+}
+//event listener for next question buttons
+nextBTN.forEach(button => button.addEventListener('click',nextQuestion))
+
+//event handler to bring you from win screen back to homepage
+const replay = () => {
+    homePage.style.opacity = "1";
+    winScreen.style.opacity = "0";
+    scoreBoard.style.opacity = "0";
+}
+
+//event listener for play again button to bring you back to homepage
+playAgain.addEventListener('click',replay)
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //game logic
