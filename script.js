@@ -223,6 +223,20 @@ const questionsHard = [{
     next2.setAttribute('class', 'button next wrongBTN')
     //grab both of the next buttons
     let nextBTN = document.querySelectorAll('.next')
+    //round over modal
+    let roundOver = document.createElement('div');
+    document.body.appendChild(roundOver)
+    roundOver.setAttribute('class', 'roundOver');
+    //Round over message
+    let roundOverMess = document.createElement('h1');
+    roundOver.appendChild(roundOverMess);
+    roundOverMess.setAttribute('class', 'rOMess');
+    roundOverMess.innerHTML = "Great Job, This Round is Over!"
+    //button to go to win screen when round is over
+    let goToWin = document.createElement('button');
+    roundOver.appendChild(goToWin);
+    goToWin.setAttribute('class', 'button')
+    goToWin.innerHTML = "Show Final Score!"
     //score board modal
     let scoreBoard = document.createElement('div');
     document.body.appendChild(scoreBoard);
@@ -263,8 +277,6 @@ const questionsHard = [{
     playAgain.setAttribute('class', 'button playAgain');
 
 
-    console.log(body)
-
 
 
 
@@ -282,22 +294,24 @@ body.addEventListener('load',loadHome())
 
 
 
-
-
-//question counter
-let counter = 0;
- //random question and answer generator
- const randomQuestion = () =>{
- let random = Math.floor(Math.random() * questionsEasy.length)
- question.innerHTML = questionsEasy[random].question
- //to generate answers
- for (let i = 0; i < answerButtons.length; i++) {
-    answerButtons[i].innerHTML = questionsEasy[random].answer[i]
-} 
-
+//better randomquestion function that does not repeat questions
+questionArray = [];
+const randomQuestion = () => {
+if (!questionArray.length) {
+    for (let i = 0; i < questionsEasy.length; i ++) {
+        questionArray.push(i);
+    }
 }
-
-
+let random = Math.floor(Math.random() * questionArray.length);
+let val = questionArray[random];
+questionArray.splice(random, 1);
+console.log(val)
+console.log(questionArray)
+question.innerHTML = questionsEasy[val].question
+for (let i = 0; i < answerButtons.length; i++) {
+    answerButtons[i].innerHTML = questionsEasy[val].answer[i]
+} 
+}
 
 
 
@@ -356,14 +370,8 @@ fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/ra
     //if right/wrong modal opacity = 1 then generate random trivia
 
 
-   //add to the counter every time an answer is chosen
-    counter += 1
-     //if we've done 5 quesionts then bring up winner screen
-    if(counter > 4) {
-    winScreen.style.opacity = "1";
-    trivia.style.opacity = "0"; 
-    }
-    
+
+    console.log(counter)
 }
 answerButtons.forEach(button => button.addEventListener('click',chooseAnswer))
 
@@ -379,19 +387,36 @@ answerButtons.forEach(button => button.addEventListener('click',chooseAnswer))
 
 
 
+//question counter
+let counter = 0;
 //event handler to bring you from the right/wrong screen to the next question
 const nextQuestion = () => {
     rightModal.style.opacity = "0";
     wrongModal.style.opacity = "0";
     trivia.style.opacity = "1";
-randomQuestion()
+    randomQuestion()
+   //add to the counter every time an answer is chosen
+   counter += 1
+   //if we've done 5 quesionts then bring up winner screen
+  if(counter > 4) {
+      roundOver.style.opacity = "1";
+      trivia.style.opacity = "0";
+      rightModal.style.opacity = "0";
+      wrongModal.style.opacity = "0";
+      counter = 0
+  }
 }
 //event listener for next question buttons
 nextBTN.forEach(button => button.addEventListener('click',nextQuestion))
 
 
-
-
+//event handler to go to the win screen from the round over screen
+const winner = () => {
+    roundOver.style.opacity = "0";
+    winScreen.style.opacity = "1";
+}
+//event listener to go to the win screen button
+goToWin.addEventListener('click', winner)
 
 
 
