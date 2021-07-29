@@ -1,15 +1,10 @@
 const questionsEasy = [{
-    "question": "What is the most consumed manufactured drink in the world?",
-    "answer": ["Tea", "Beer", "Coca-cola", "Pepsi"],
-    "final": 0
-},
-{
     "question": "Clam Chowder originated in which country?",
     "answer": ["Australia", "United Kingdom", "USA", "Spain"],
     "final": 2
 },
 {
-    "question": "What fast food restaurant boasts that you can Have it your way?",
+    "question": "What fast food restaurant boasts that you can \"Have it your way\"?",
     "answer": ["Hardees", "In and Out", "Burger King", "Mickey D's"],
     "final": 2
 },
@@ -50,7 +45,7 @@ const questionsMed = [{
     "final": 0
 },
 {
-    "question": "A macaroon is typically made using which nut?",
+    "question": "A macaron is typically made using which nut?",
     "answer": ["Almonds", "Pistachios", "Peanuts", "Cashews"],
     "final": 0
 },
@@ -116,7 +111,7 @@ const questionsHard = [{
     "final": 1
 },
 {
-    "question": "Which of the following is not considered a Mother Sauce?",
+    "question": "Which of the following is not considered a \"Mother Sauce\"?",
     "answer": ["Hollandaise", "Bechamel", "Veloute", "Bearnaise"],
     "final": 3
 },
