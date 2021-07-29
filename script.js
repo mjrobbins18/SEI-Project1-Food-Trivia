@@ -368,15 +368,9 @@ fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/ra
 });
 
 
-
-
-
-
-
-
 //logic for guessing right or wrong answer and increases numbers on scoreboard
+//either brings up right modal or wrong modal
 let isCorrect = questionsEasy.map(item => event.target.innerHTML == item.final)
-console.log(isCorrect)
     if (isCorrect.includes(true)) {
         rightModal.style.opacity = "1";
         rightAns += 1
@@ -387,17 +381,12 @@ console.log(isCorrect)
 scoreWrongNum.innerHTML = wrongAns;
 scoreRightNum.innerHTML = rightAns;
 
-console.log(questionsEasy)
-
-
-
-
-    //goes within logic- either brings up right modal or wrong modal
-    trivia.style.opacity = "0";
-    //inserts the random trivia/joke into the right/wrong modal
-    wrongModal.appendChild(randJoke1);
-    rightModal.appendChild(randJoke);
-    //if right/wrong modal opacity = 1 then generate random trivia
+//hides the trivia modal
+trivia.style.opacity = "0";
+//inserts the random trivia/joke into the right/wrong modal
+wrongModal.appendChild(randJoke1);
+rightModal.appendChild(randJoke);
+//if right/wrong modal opacity = 1 then generate random trivia
 
 }
 answerButtons.forEach(button => button.addEventListener('click',chooseAnswer))
@@ -459,6 +448,10 @@ const replay = () => {
     homePage.style.opacity = "1";
     winScreen.style.opacity = "0";
     scoreBoard.style.opacity = "0";
+    scoreWrongNum.innerHTML = 0;
+    scoreRightNum.innerHTML = 0;
+    rightAns = 0;
+    wrongAns = 0;
 }
 
 //event listener for play again button to bring you back to homepage

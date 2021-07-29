@@ -1,5 +1,10 @@
 body {
-    background: aqua;
+    background-image: url('Wood-Top-Background.jpg');
+    background-size: 1200px;
+    display: flex;
+    align-content: center;
+    /* justify-content: center; */
+    color: white;
 }
 
 .homePage {
@@ -8,6 +13,7 @@ body {
     width: 400px;
     text-align: center;
     opacity: 0;
+    padding: 15%;
 }
 
 .trivia {
@@ -15,10 +21,8 @@ body {
     height: 400px;
     width: 400px;
     text-align: center;
-    /* display: flex;
-    justify-content: center;
-    align-items: baseline; */
     opacity: 0;
+    padding: 15%;
 }
 .right {
     border: 2px solid black;
@@ -26,6 +30,7 @@ body {
     width: 400px;
     text-align: center;
     opacity: 0;
+    padding: 15%;
 }
 .wrong {
 
@@ -34,6 +39,7 @@ body {
     width: 400px;
     text-align: center;
     opacity: 0;
+    padding: 15%;
 }
 .scoreBoard {
     border: 2px solid black;
@@ -41,6 +47,7 @@ body {
     width: 200px;
     text-align: center;
     opacity: 0;
+    padding: 15%;
 }
 .winScreen {
     border: 2px solid black;
@@ -48,6 +55,7 @@ body {
     width: 400px;
     text-align: center;
     opacity: 0;
+    padding: 15%;
 }
 .roundOver {
     border: 2px solid black;
@@ -55,4 +63,5 @@ body {
     width: 400px;
     text-align: center;
     opacity: 0;
+    padding: 15%;
 }
