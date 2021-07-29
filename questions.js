@@ -34,7 +34,7 @@ const questionsEasy = [{
     "final": 0
 },
 {
-    "question": "Who is the famous mascot for McDonald's",
+    "question": "Who is the famous mascot for McDonald's?",
     "answer": ["Ronald McDonald", "Wendy Thomas", "Caillou", "Naruto"],
     "final": 0
 },
