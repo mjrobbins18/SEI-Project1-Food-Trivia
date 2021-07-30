@@ -14,7 +14,7 @@ const questionsEasy = [{
 {
     "question": "How many secret herbs and spices are there in the Colonel's recipe?",
     "answer": ["Eleven", "At least a million", "Infinity", "Zero"],
-    "final": "11",
+    "final": "Eleven",
     "image": "/images/KFC.png"
 },
 {
@@ -55,7 +55,7 @@ const questionsEasy = [{
 },
 {
     "question": "What is this ingredient called?",
-    "answer": ["No Idea", "Chicken of the Sea", "Scallops", "Steak"],
+    "answer": ["No Idea", "Chicken of the Sea", "Scallops", "Bananas"],
     "final": "Scallops",
     "image": "/images/Scallops.png"
 },
@@ -451,6 +451,22 @@ wrongModal.appendChild(randJoke);
 //if right/wrong modal opacity = 1 then generate random trivia
 tContainer.classList.toggle('show-modal')
 console.log(rMContainer.classList)
+
+
+
+if((counter > 4) && (isCorrect.includes(true))) {
+    rMContainer.classList.toggle('show-modal')
+    rOContainer.classList.toggle('show-modal')
+    roundOver.appendChild(rightMess)
+    counter = 0
+}else if ((counter > 4) && (isCorrect.includes(true) == false)){
+    wMContainer.classList.toggle('show-modal')
+    rOContainer.classList.toggle('show-modal')
+    roundOver.appendChild(wrongMess)
+    counter = 0
+} 
+
+
 }
 answerButtons.forEach(button => button.addEventListener('click',chooseAnswer))
 
@@ -469,10 +485,7 @@ const nextQuestion = (event) => {
    //add to the counter every time an answer is chosen
    counter += 1
    //if we've done 5 quesionts then bring up winner screen
-  if(counter > 4) {
-      rOContainer.classList.toggle('show-modal')
-      counter = 0
-  }
+
 }
 //event listener for next question buttons
 nextBTN.forEach(button => button.addEventListener('click',nextQuestion))
@@ -483,6 +496,7 @@ const winner = () => {
     wSContainer.classList.toggle('show-modal')
     sCContainer.classList.toggle('show-modal')
     rOContainer.classList.toggle('show-modal')
+    wSContainer.appendChild(sCContainer)
 }
 //event listener to go to the win screen button
 goToWin.addEventListener('click', winner)
@@ -498,8 +512,11 @@ goToWin.addEventListener('click', winner)
 
 //event handler to bring you from win screen back to homepage
 const replay = () => {
-    hPContainer.toggleAttribute('class', 'container');
-    wSContainer.toggleAttribute('class', 'container');
+    hPContainer.classList.toggle('show-modal');
+    wSContainer.classList.toggle('show-modal');
+    rightModal.appendChild(rightMess);
+    wrongModal.appendChild(wrongMess);
+    tContainer.appendChild(sCContainer);
     scoreWrongNum.innerHTML = 0;
     scoreRightNum.innerHTML = 0;
     rightAns = 0;
