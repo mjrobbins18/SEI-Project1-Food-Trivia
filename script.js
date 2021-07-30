@@ -161,7 +161,6 @@ const questionsHard = [{
 
 
 
-
 //////create all elements
     let body = document.querySelector('body');
     //homepage modal container
@@ -171,7 +170,7 @@ const questionsHard = [{
     ////homepage modal
     let homePage = document.createElement('div');
     hPContainer.appendChild(homePage);
-    homePage.setAttribute('class', 'homePage');
+    homePage.setAttribute('class', 'content homePage');
     //welcome message
     let welcomeMessage = document.createElement('h1');
     homePage.appendChild(welcomeMessage);
@@ -199,7 +198,7 @@ const questionsHard = [{
     ////Trivia Modal
     let trivia = document.createElement('div');
     tContainer.appendChild(trivia);
-    trivia.setAttribute('class', 'trivia');
+    trivia.setAttribute('class', 'content trivia');
     //question - inserted randomly 
     let question = document.createElement('h1');
     trivia.appendChild(question);
@@ -212,7 +211,7 @@ const questionsHard = [{
     //answer button div
     let answerCont = document.createElement('div');
     trivia.appendChild(answerCont);
-    answerCont.setAttribute('class', 'container ansCont');
+    answerCont.setAttribute('class', 'ansCont');
     //answer buttons - inserted with question
     for(let i =0; i < 4; i++) {
         let answerBTN = document.createElement('button');
@@ -228,7 +227,7 @@ const questionsHard = [{
     ////Right Modal
     let rightModal = document.createElement('div');
     rMContainer.appendChild(rightModal);
-    rightModal.setAttribute('class', 'right');
+    rightModal.setAttribute('class', 'content right');
     //random trivia/joke from api
     let randJoke = document.createElement('p');
     randJoke.setAttribute('class', 'joke');
@@ -254,7 +253,7 @@ const questionsHard = [{
     ////Wrong Modal
     let wrongModal = document.createElement('div');
     wMContainer.appendChild(wrongModal);
-    wrongModal.setAttribute('class', 'wrong');
+    wrongModal.setAttribute('class', 'content wrong');
      //sorry, you missed that one
      let wrongMess = document.createElement('h1');
      wrongModal.appendChild(wrongMess);
@@ -265,7 +264,6 @@ const questionsHard = [{
     wrongModal.appendChild(wrongPic);
     wrongPic.setAttribute('class', 'wrongPic');
     wrongPic.src = "/images/Wrong.gif"
-
     //random joke/trivia for wrong modal
     let randJoke1 = document.createElement('p');
     randJoke1.setAttribute('class', 'joke');
@@ -283,7 +281,7 @@ const questionsHard = [{
     //round over modal
     let roundOver = document.createElement('div');
     rOContainer.appendChild(roundOver)
-    roundOver.setAttribute('class', 'roundOver');
+    roundOver.setAttribute('class', 'content roundOver');
     //Round over message
     let roundOverMess = document.createElement('h1');
     roundOver.appendChild(roundOverMess);
@@ -296,12 +294,12 @@ const questionsHard = [{
     goToWin.innerHTML = "Show Final Score!"
     //scoreboard container
     let sCContainer = document.createElement('div');
-    document.body.appendChild(sCContainer);
-    sCContainer.setAttribute('class', 'container sCCont')
+    tContainer.appendChild(sCContainer);
+    sCContainer.setAttribute('class', 'sCCont')
     //score board modal
     let scoreBoard = document.createElement('div');
     sCContainer.appendChild(scoreBoard);
-    scoreBoard.setAttribute('class', 'scoreBoard');
+    scoreBoard.setAttribute('class', 'content scoreBoard');
     scoreBoard.innerHTML = `<strong>Score</strong>`;
     //player name
     let playerName = document.createElement('div');
@@ -335,7 +333,7 @@ const questionsHard = [{
     ////Win Screen Modal
     let winScreen = document.createElement('div');
     wSContainer.appendChild(winScreen);
-    winScreen.setAttribute('class', 'winScreen');
+    winScreen.setAttribute('class', 'content winScreen');
     //Nice Job/Better Luck Next Time Message
     let endMessage = document.createElement('h1');
     winScreen.appendChild(endMessage);
@@ -361,9 +359,9 @@ const questionsHard = [{
 
 //modal functionality  
 
-//function that shows the homepage when it is loaded
+// function that shows the homepage when it is loaded
 const loadHome = () => {
-    hPContainer.style.opacity = "0.75";
+    hPContainer.classList.toggle('show-modal')
 }
 body.addEventListener('load',loadHome())
 
@@ -394,9 +392,9 @@ for (let i = 0; i < answerButtons.length; i++) {
 ////pulls up first question
 const getStarted = () => {
     playerName.innerHTML = nameInput.value;
-    hPContainer.style.opacity = "0";
-    tContainer.style.opacity = "0.75";
-    sCContainer.style.opacity = "0.75";
+    tContainer.classList.toggle('show-modal')
+    // sCContainer.classList.toggle('show-modal')
+    hPContainer.classList.toggle('show-modal')
     //populate first question into trivia modal
     randomQuestion()
 }
@@ -438,53 +436,41 @@ fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/ra
 //either brings up right modal or wrong modal
 let isCorrect = questionsEasy.map(item => event.target.innerHTML == item.final)
     if (isCorrect.includes(true)) {
-        rMContainer.style.opacity = "0.75";
+        rMContainer.classList.toggle('show-modal')
         rightAns += 1
     } else {
-        wMContainer.style.opacity = "0.75"
+        wMContainer.classList.toggle('show-modal')
         wrongAns += 1
     }
 scoreWrongNum.innerHTML = wrongAns;
 scoreRightNum.innerHTML = rightAns;
 
-//hides the trivia modal
-tContainer.style.opacity = "0";
 //inserts the random trivia/joke into the right/wrong modal
 rightModal.appendChild(randJoke1);
 wrongModal.appendChild(randJoke);
 //if right/wrong modal opacity = 1 then generate random trivia
-
+tContainer.classList.toggle('show-modal')
+console.log(rMContainer.classList)
 }
 answerButtons.forEach(button => button.addEventListener('click',chooseAnswer))
-
-
-
-
-
-
-
-
-
-
-
 
 
 //question counter
 let counter = 0;
 //event handler to bring you from the right/wrong screen to the next question
-const nextQuestion = () => {
-    rMContainer.style.opacity = "0";
-    wMContainer.style.opacity = "0";
-    tContainer.style.opacity = "0.75";
+const nextQuestion = (event) => {
+    tContainer.classList.toggle('show-modal')
+    if (event.target == next1){
+        rMContainer.classList.toggle('show-modal')
+    }else if (event.target == next2) {
+        wMContainer.classList.toggle('show-modal')
+    }
     randomQuestion()
    //add to the counter every time an answer is chosen
    counter += 1
    //if we've done 5 quesionts then bring up winner screen
   if(counter > 4) {
-      rOContainer.style.opacity = "0.75";
-      tContainer.style.opacity = "0";
-      rMContainer.style.opacity = "0";
-      wMContainer.style.opacity = "0";
+      rOContainer.classList.toggle('show-modal')
       counter = 0
   }
 }
@@ -494,8 +480,9 @@ nextBTN.forEach(button => button.addEventListener('click',nextQuestion))
 
 //event handler to go to the win screen from the round over screen
 const winner = () => {
-    rOContainer.style.opacity = "0";
-    wSContainer.style.opacity = "0.75";
+    wSContainer.classList.toggle('show-modal')
+    sCContainer.classList.toggle('show-modal')
+    rOContainer.classList.toggle('show-modal')
 }
 //event listener to go to the win screen button
 goToWin.addEventListener('click', winner)
@@ -511,13 +498,13 @@ goToWin.addEventListener('click', winner)
 
 //event handler to bring you from win screen back to homepage
 const replay = () => {
-    hPContainer.style.opacity = "0.75";
-    wSContainer.style.opacity = "0";
-    sCContainer.style.opacity = "0";
+    hPContainer.toggleAttribute('class', 'container');
+    wSContainer.toggleAttribute('class', 'container');
     scoreWrongNum.innerHTML = 0;
     scoreRightNum.innerHTML = 0;
     rightAns = 0;
     wrongAns = 0;
+    console.log('button')
 }
 
 //event listener for play again button to bring you back to homepage

@@ -6,10 +6,57 @@ body {
     color: rgb(32, 0, 146);
 }
 
+
+.container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+
+}
+.content {
+    align-self: center;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+  }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
 .hP {
     border: 2px solid black;
-    height: 200px;
-    width: 800px;
+    height: 100%;
+     width: 800px; 
     position: relative;
     display: flex;
     justify-self: center;
@@ -17,16 +64,13 @@ body {
     text-align: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 50%;
-    margin-left: 50%;
-    padding: 15%;
+    margin: 0 auto;
+     padding: 15%;
     position: relative;
     opacity: 0;
     background: white;
     border-radius: 12%;
-    
-}
-
+ }
 
 .tRCont {
     border: 2px solid black;
@@ -82,7 +126,7 @@ body {
     padding: 15%;
     opacity: 0;
     background: white;
-}
+} */
 .questionPic {
     height: 150px;
     width: 150px;
