@@ -17,6 +17,7 @@ body {
     opacity: 0;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     visibility: hidden;
     transform: scale(1.1);
@@ -29,6 +30,10 @@ body {
     padding: 1rem 1.5rem;
     width: 24rem;
     border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .show-modal {
@@ -37,96 +42,13 @@ body {
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
   }
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-
-.hP {
-    border: 2px solid black;
-    height: 100%;
-     width: 800px; 
-    position: relative;
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 0 auto;
-     padding: 15%;
-    position: relative;
-    opacity: 0;
-    background: white;
-    border-radius: 12%;
- }
-
-.tRCont {
-    border: 2px solid black;
-    height: 400px;
-    width: 400px;
-    text-align: center;
-    padding: 15%;
-    opacity: 0;
-    background: white;
+.wrongPic{
+    height: 60%;
+    width: 60%;
+    border-radius: 0.5rem;
 }
-.rMCont {
-    border: 2px solid black;
-    height: 400px;
-    width: 400px;
-    text-align: center;
-    padding: 15%;
-    opacity: 0;
-    background: white;
-}
-.wMCont {
 
-    border: 2px solid black;
-    height: 400px;
-    width: 400px;
-    text-align: center;
-    padding: 15%;
-    opacity: 0;
-    background: white;
-}
-.sCCont {
-    border: 2px solid black;
-    height: 400px;
-    width: 200px;
-    text-align: center;
-    opacity: 0;
-    padding: 15%;
-    background: white;
-}
-.wSCont {
-    border: 2px solid black;
-    height: 400px;
-    width: 400px;
-    text-align: center;
-    padding: 15%;
-    opacity: 0;
-    background: white;
-}
-.rOCont {
-    border: 2px solid black;
-    height: 400px;
-    width: 400px;
-    text-align: center;
-    padding: 15%;
-    opacity: 0;
-    background: white;
-} */
+
 .questionPic {
     height: 150px;
     width: 150px;
@@ -134,4 +56,50 @@ body {
 .rightPic {
     height: 200px;
     width: 200px;
+    border-radius: 0.5rem;
 }
+/* .button {
+    padding: 10px 20px;
+    border-radius: 0.5rem;
+    border: 2px solid #2196F3;
+    font-size: 15px;
+    cursor: pointer;
+    transition:0.5s ease-in-out;
+    color: #FFF;
+    background: #2196F3;
+
+}
+.button:hover{
+    letter-spacing: 5px; */
+/* } */
+/* .button{
+    width:100%;
+    height:20px;
+    background:rgba(255, 255, 255, .27);
+    text-transform:uppercase;
+    position: relative;
+    color: black;
+    font-weight:700;
+    letter-spacing:1px;
+    border:none;
+    font-size:15px;
+    outline:none;
+    cursor: pointer;
+    border-top: 0;
+    border-left: 50%;
+    border-width: 0;
+    border-bottom: 1px solid black;
+    transition: width .5s ease-in-out, transform 1s ease-in-out;
+  }
+.button {
+    top:0;
+    left:50%;
+    width:0;
+    border-top:1px solid white;
+    transition:width .5s ease-in-out, transform 1s ease-in-out;
+}
+.button:hover {
+    transform:translate(-50%, 0);
+    width:100%;
+    transition:width .8s ease-in-out, transform .3s tease-in-ou;
+} */

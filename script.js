@@ -189,7 +189,7 @@ const questionsHard = [{
     //start game button
     let startGame = document.createElement('button');
     homePage.appendChild(startGame);
-    startGame.setAttribute('class', 'start');
+    startGame.setAttribute('class', 'button start');
     startGame.innerHTML = "Let's Get Started!"
     /////Trivia Modal Container
     let tContainer = document.createElement('div');
@@ -216,7 +216,7 @@ const questionsHard = [{
     for(let i =0; i < 4; i++) {
         let answerBTN = document.createElement('button');
         answerCont.appendChild(answerBTN);
-        answerBTN.setAttribute('class', 'answer');
+        answerBTN.setAttribute('class', 'button answer');
     }
     //nodelist with buttons in it
     let answerButtons = document.querySelectorAll('.answer')
@@ -512,7 +512,7 @@ goToWin.addEventListener('click', winner)
 
 //event handler to bring you from win screen back to homepage
 const replay = () => {
-    hPContainer.classList.toggle('show-modal');
+    loadHome()
     wSContainer.classList.toggle('show-modal');
     rightModal.appendChild(rightMess);
     wrongModal.appendChild(wrongMess);
@@ -521,7 +521,6 @@ const replay = () => {
     scoreRightNum.innerHTML = 0;
     rightAns = 0;
     wrongAns = 0;
-    console.log('button')
 }
 
 //event listener for play again button to bring you back to homepage
