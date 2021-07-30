@@ -1,67 +1,93 @@
 body {
-    background-image: url('Wood-Top-Background.jpg');
+    background-image: url('/images/woodBack.jpg');
     background-size: 1200px;
     display: flex;
     align-content: center;
-    /* justify-content: center; */
-    color: white;
+    color: rgb(32, 0, 146);
 }
 
-.homePage {
+.hP {
     border: 2px solid black;
-    height: 400px;
-    width: 400px;
+    height: 200px;
+    width: 800px;
+    position: relative;
+    display: flex;
+    justify-self: center;
+    align-self: center;
     text-align: center;
-    opacity: 0;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50%;
+    margin-left: 50%;
     padding: 15%;
+    position: relative;
+    opacity: 0;
+    background: white;
+    border-radius: 12%;
+    
 }
 
-.trivia {
+
+.tRCont {
     border: 2px solid black;
     height: 400px;
     width: 400px;
     text-align: center;
-    opacity: 0;
     padding: 15%;
+    opacity: 0;
+    background: white;
 }
-.right {
+.rMCont {
     border: 2px solid black;
     height: 400px;
     width: 400px;
     text-align: center;
-    opacity: 0;
     padding: 15%;
+    opacity: 0;
+    background: white;
 }
-.wrong {
+.wMCont {
 
     border: 2px solid black;
     height: 400px;
     width: 400px;
     text-align: center;
-    opacity: 0;
     padding: 15%;
+    opacity: 0;
+    background: white;
 }
-.scoreBoard {
+.sCCont {
     border: 2px solid black;
     height: 400px;
     width: 200px;
     text-align: center;
     opacity: 0;
     padding: 15%;
+    background: white;
 }
-.winScreen {
+.wSCont {
     border: 2px solid black;
     height: 400px;
     width: 400px;
     text-align: center;
-    opacity: 0;
     padding: 15%;
+    opacity: 0;
+    background: white;
 }
-.roundOver {
+.rOCont {
     border: 2px solid black;
     height: 400px;
     width: 400px;
     text-align: center;
-    opacity: 0;
     padding: 15%;
+    opacity: 0;
+    background: white;
+}
+.questionPic {
+    height: 150px;
+    width: 150px;
+}
+.rightPic {
+    height: 200px;
+    width: 200px;
 }
