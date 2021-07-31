@@ -45,6 +45,31 @@ body {
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
   }
+/* Answer Buttons */
+.ansCont {
+    flex: 20%;
+    padding: 15%;
+}
+.answer {
+display: flex;
+flex-direction: column;
+padding: 2%;
+margin-bottom: 10px;
+width: 350px;
+text-align: center;
+font-family: 'Comfortaa', cursive;
+color: white;
+background: none;
+border: 1px solid white;
+border-radius: 25px;
+transition: all .5s ease-in-out;
+cursor: pointer;
+}
+.answer:hover{
+    background: white;
+    color: black;
+}
+
 .wrongPic{
     height: 60%;
     width: 60%;
@@ -61,26 +86,11 @@ body {
     width: 200px;
     border-radius: 0.5rem;
 }
-/* .button {
-    padding: 10px 20px;
-    border-radius: 0.5rem;
-    border: 2px solid #2196F3;
-    font-size: 15px;
-    cursor: pointer;
-    transition:0.5s ease-in-out;
-    color: #FFF;
-    background: #2196F3;
-
-}
-.button:hover{
-    letter-spacing: 5px; */
-/* } */
 
 /* Input bar */
 .input {
     margin-bottom: 10%;
     background: none;
-    /* padding: 5%; */
     padding-top: 5%;
     padding-bottom: 5%;
     padding-left: 20%;
@@ -106,6 +116,8 @@ textarea:focus{
     opacity: 0.75;
 }
 
+
+ /* start button */
 .buttonBox{
     margin: 0 20px 40px;
     position:relative;
