@@ -194,7 +194,7 @@ const questionsHard = [{
     let startGame = document.createElement('button');
     startDiv.appendChild(startGame);
     startGame.setAttribute('class', 'button start');
-    startGame.innerHTML = "Let's Get Started!"
+    startGame.innerHTML = "Easy"
     //border divs
     let borderDiv1 = document.createElement('div');
     startDiv.appendChild(borderDiv1);
@@ -202,6 +202,12 @@ const questionsHard = [{
     let borderDiv2 = document.createElement('div');
     startDiv.appendChild(borderDiv2);
     borderDiv2.setAttribute('class', 'border')
+    let borderDiv3 = document.createElement('div');
+    startDiv.appendChild(borderDiv3);
+    borderDiv3.setAttribute('class', 'border')
+    let borderDiv4 = document.createElement('div');
+    startDiv.appendChild(borderDiv4);
+    borderDiv4.setAttribute('class', 'border')
     /////Trivia Modal Container
     let tContainer = document.createElement('div');
     document.body.appendChild(tContainer);
