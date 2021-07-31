@@ -262,7 +262,7 @@ const questionsHard = [{
     let next1 = document.createElement('button');
     rightModal.appendChild(next1);
     next1.innerHTML = "Next Question!";
-    next1.setAttribute('class', 'button next rightBTN');
+    next1.setAttribute('class', 'button next wrongBTN');
     //Wrong Modal Container
     let wMContainer = document.createElement('div');
     document.body.appendChild(wMContainer);
@@ -354,7 +354,6 @@ const questionsHard = [{
     let endMessage = document.createElement('h1');
     winScreen.appendChild(endMessage);
     endMessage.setAttribute('class', 'endMessage');
-    endMessage.innerHTML = "Nice Job/Better Luck Next Time!"
     //image- good/bad
     let endImage = document.createElement('img');
     winScreen.appendChild(endImage);
@@ -481,7 +480,8 @@ if((counter > 4) && (isCorrect.includes(true))) {
     roundOver.appendChild(wrongMess)
     counter = 0
 } 
-
+  //add to the counter every time an answer is chosen
+  counter += 1
 
 }
 answerButtons.forEach(button => button.addEventListener('click',chooseAnswer))
@@ -498,8 +498,7 @@ const nextQuestion = (event) => {
         wMContainer.classList.toggle('show-modal')
     }
     randomQuestion()
-   //add to the counter every time an answer is chosen
-   counter += 1
+ 
    //if we've done 5 quesionts then bring up winner screen
 
 }
@@ -513,6 +512,13 @@ const winner = () => {
     sCContainer.classList.toggle('show-modal')
     rOContainer.classList.toggle('show-modal')
     wSContainer.appendChild(sCContainer)
+    if (scoreRightNum.innerHTML > scoreWrongNum.innerHTML) {
+        endMessage.innerHTML = `Great Job ${playerName.innerHTML}, You Got ${scoreRightNum.innerHTML} Questions Right!`
+    } else if(scoreRightNum.innerHTML < scoreWrong.innerHTML) {
+        endMessage.innerHTML = `Yikes ${playerName.innerHTML}, You Missed ${scoreWrongNum.innerHTML} Questions. Hit The Books.`
+    } else {
+        endMessage.innerHTML = `Pretty Good ${playerName.innerHTML}, But You Can Do Better.`
+    }
 }
 //event listener to go to the win screen button
 goToWin.addEventListener('click', winner)

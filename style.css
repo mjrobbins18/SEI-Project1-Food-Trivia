@@ -66,15 +66,12 @@ transition: all .5s ease-in-out;
 cursor: pointer;
 }
 .answer:hover{
+    box-shadow: 6px 6px 6px #d6c7a6;
     background: white;
     color: black;
 }
 
-.wrongPic{
-    height: 60%;
-    width: 60%;
-    border-radius: 0.5rem;
-}
+
 /* ScoreBoard */
 .scoreBoard {
     display: grid;
@@ -101,11 +98,6 @@ grid-template-rows: 40px 40px 40px;
 .questionPic {
     height: 150px;
     width: 150px;
-}
-.rightPic {
-    height: 200px;
-    width: 200px;
-    border-radius: 0.5rem;
 }
 
 /* Input bar */
@@ -137,7 +129,6 @@ textarea:focus{
     opacity: 0.75;
 }
 
-
  /* start button */
 .buttonBox{
     margin: 0 20px 40px;
@@ -146,7 +137,7 @@ textarea:focus{
     min-width: 150px;
     flex: 20%;
   }
-  .border {
+.border {
       position: absolute;
       background: none;
       transition: all 1s ease-in-out;
@@ -175,4 +166,59 @@ textarea:focus{
     0 20px 20px -5px #d6c7a6;
     transform: translateY(-6px);
     transition: all .5s ease-in-out;
+    background: white;
+    color: black
+}
+
+/* Next Question Button */
+.next {
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    margin-top: 15px;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+    background: none;
+    border: 1px solid white;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+.next:hover {
+    box-shadow:  0 5px 5px -5px #d6c7a6,
+    0 10px 10px -5px #d6c7a6,
+    0 15px 15px -5px #d6c7a6,
+    0 20px 20px -5px #d6c7a6;
+    transform: translateY(-6px);
+    transition: all .5s ease-in-out;
+    background: white;
+    color: black;
+}
+/* right modal */
+.right {
+    display: grid;
+    grid-template-rows: auto;
+}
+.rightPic {
+    height: 200px;
+    width: 200px;
+    border-radius: 0.5rem;
+}
+/* wrong modal */
+.wrong {
+    display: grid;
+    grid-template-rows: auto;
+}
+.wrongPic{
+    grid-row-start: 2;
+    height: 75%;
+    width: 75%;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+}
+.wrongBTN {
+    width: 130px;
+    margin: 0 auto;
+    grid-row-start: 3;
 }
