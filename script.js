@@ -317,7 +317,6 @@ const questionsHard = [{
     let scoreBoard = document.createElement('div');
     sCContainer.appendChild(scoreBoard);
     scoreBoard.setAttribute('class', 'content scoreBoard');
-    scoreBoard.innerHTML = `<strong>Score</strong>`;
     //player name
     let playerName = document.createElement('div');
     scoreBoard.appendChild(playerName);

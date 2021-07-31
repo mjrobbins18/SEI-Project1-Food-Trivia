@@ -75,7 +75,28 @@ cursor: pointer;
     width: 60%;
     border-radius: 0.5rem;
 }
-
+/* ScoreBoard */
+.scoreBoard {
+    display: grid;
+grid-template-columns:120px 120px 120px;
+grid-template-rows: 40px 40px 40px;
+}
+.player {
+    grid-column-start: 2;
+    font-size: 30px;
+}
+.rightScore {
+    font-size: 20px;
+    line-height: 2;
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+.wrongScore {
+    font-size: 20px;
+    line-height: 2;
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
 
 .questionPic {
     height: 150px;
