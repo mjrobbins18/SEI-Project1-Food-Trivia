@@ -186,11 +186,22 @@ const questionsHard = [{
     homePage.appendChild(nameInput);
     nameInput.setAttribute('class', 'input');
     nameInput.setAttribute('placeHolder', 'Enter Your Name');
+    //start game button div
+    let startDiv = document.createElement('div');
+    homePage.appendChild(startDiv);
+    startDiv.setAttribute('class', 'buttonBox');
     //start game button
     let startGame = document.createElement('button');
-    homePage.appendChild(startGame);
+    startDiv.appendChild(startGame);
     startGame.setAttribute('class', 'button start');
     startGame.innerHTML = "Let's Get Started!"
+    //border divs
+    let borderDiv1 = document.createElement('div');
+    startDiv.appendChild(borderDiv1);
+    borderDiv1.setAttribute('class', 'border');
+    let borderDiv2 = document.createElement('div');
+    startDiv.appendChild(borderDiv2);
+    borderDiv2.setAttribute('class', 'border')
     /////Trivia Modal Container
     let tContainer = document.createElement('div');
     document.body.appendChild(tContainer);
