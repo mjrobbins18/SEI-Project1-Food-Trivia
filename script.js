@@ -161,7 +161,12 @@ totalLB.innerHTML = `<strong>Total Points</strong>`;
 let playerLB = document.createElement('div');
 leaderBoard.appendChild(playerLB);
 playerLB.setAttribute('class', 'playerLB');
-playerLB.innerHTML = "Player Name"
+playerLB.innerHTML = "Player"
+//date- leaderboard
+let dateLB = document.createElement('div');
+leaderBoard.appendChild(dateLB);
+dateLB.setAttribute('class', 'dateLB');
+dateLB.innerHTML = "Date"
 //back to homepage button
 let lBButton = document.createElement('button');
 leaderBoard.appendChild(lBButton);
@@ -316,7 +321,65 @@ playAgain.setAttribute('class', 'button playAgain');
 
 
 //working on leaderboard functionality
-const playerArray = [];
+//object to hold the player data
+let playerObject = [
+    {"Player": "max",
+     "Date": "1/22/33",
+     "Points": 323},
+     {"Player": "benji",
+     "Date": "1/2/23",
+     "Points": 623},
+     {"Player": "jesus",
+     "Date": "1/1/63",
+     "Points": 123},
+]
+const sortBoard = () => {
+    playerObject.sort((a,b) => (b.Points - a.Points))
+}
+sortBoard()
+//grabbing the table from the html
+let leaderTable = document.querySelector('table')
+leaderBoard.appendChild(leaderTable)
+//filling the table head with the keys of the player object 
+let data = Object.keys(playerObject[0])
+const fillLBH = (leaderTable) => {
+    let tableHead = leaderTable.createTHead();
+    return tableHead;
+}
+fillLBH(leaderTable);
+const leaderBoardHead = (leaderTable) => {
+    let leaderHead = leaderTable.createTHead();
+    let row = leaderHead.insertRow();
+    for (let key of data) {
+        let th = document.createElement('th');
+        let headText = document.createTextNode(key);
+        th.appendChild(headText);
+        row.appendChild(th);
+    }
+} 
+//filling the leaderboard with the data from the player object 
+const fillLeaderBoard = (leaderTable,data) => {
+    for (let element of data) {
+        let row = leaderTable.insertRow();
+        for (key in element) {
+            let cell = row.insertCell();
+            let text = document.createTextNode(element[key]);
+            cell.appendChild(text);
+        }
+    }
+    
+}
+//calling the leaderboard filling functions
+leaderBoardHead(leaderTable,data);
+fillLeaderBoard(leaderTable,playerObject);
+
+//sorting the leaderboard to display the highest score on top
+
+
+//pushing the player data into the player object
+
+
+
 
 
 
@@ -379,7 +442,6 @@ backHome.addEventListener('click', backToHome)
 ////enter's name into playerName
 ////pulls up first question
 const getStarted = () => {
-    playerArray.push(nameInput.value)
     playerName.innerHTML = nameInput.value;
     tContainer.classList.toggle('show-modal')
     eMContainer.classList.toggle('show-modal')

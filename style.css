@@ -23,8 +23,8 @@ body {
     visibility: hidden;
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-
 }
+
 .content {
     align-self: center;
     background-color: rgb(206, 163, 108);
@@ -169,13 +169,14 @@ textarea:focus{
 /* Leaderboard */
 .leaderBoard {
     display: grid;
-    grid-template-columns: 100px 100px 100px 100px 100px 100px; 
+    grid-template-columns: 120px 120px 120px 120px; 
     grid-template-rows: 60px 60px 60px 60px 60px 60px 60px 60px;
 
 }
 .heading {
     grid-row-start: 1;
-    grid-column-start: 2;
+    grid-column-start: 1;
+    margin-left: 85px;
 }
 
 .totalLB {
@@ -183,13 +184,19 @@ textarea:focus{
     grid-column-start: 3;
     border-left: 2px solid white;
     border-bottom: 2px solid white;
-    width: 170px;
+    width: 150px;
 }
 .playerLB {
     grid-row-start: 2;
     grid-column-start: 1;
-    width: 200px;
     border-bottom: 2px solid white;
+    border-right: 2px solid white;
+}
+.dateLB {
+    grid-row-start: 2;
+    grid-column-start: 2;
+    border-bottom: 2px solid white;
+    width: 120px;
 }
 .hPLB {
     grid-row-start: 8;
