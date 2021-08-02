@@ -2,43 +2,43 @@ const questionsMed = [{
     "question": "What is the most consumed manufactured drink in the world?",
     "answer": ["Tea", "Beer", "Coca-cola", "Pepsi"],
     "final": "Tea",
-    "image": ""
+    "image": "/images/Beverages.png"
 },
 {
     "question": "A macaron is typically made using which nut?",
     "answer": ["Almonds", "Pistachios", "Peanuts", "Cashews"],
     "final": "Almonds",
-    "image": ""
+    "image": "/images/Macaron.png"
 },
 {
     "question": "In which country did Tea originate?",
     "answer": ["Japan", "Thailand", "United Kingdom", "China"],
     "final": "China",
-    "image": ""
+    "image": "/images/Tea.png"
 },
 {
     "question": "Where did Mulligatawny soup originate?",
     "answer": ["Malaysia", "India", "Thailand", "China"],
     "final": "India",
-    "image": ""
+    "image": "/images/Mulligatawny.jpeg"
 },
 {
     "question": "Which country has the wine making region known as the Barossa Valley?",
     "answer": ["France", "Australia", "Germany", "Italy"],
     "final": "Australia",
-    "image": ""
+    "image": "/images/Wine.png"
 },
 {
     "question": "What is actually a fruit, not a veggie?",
     "answer": ["Broccoli", "Tomato", "Potato", "Cauliflower"],
     "final": "Tomato",
-    "image": ""
+    "image": "/images/FV.png"
 },
 {
     "question": "What ingredient makes a Martini \"Dirty\"",
     "answer": ["Finesse", "Olive Brine", "Onion Juice", "Bleu Cheese"],
     "final": "Olive Brine",
-    "image": ""
+    "image": "/images/Martini.png"
 },
 ]
 
