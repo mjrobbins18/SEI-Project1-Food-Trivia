@@ -60,105 +60,6 @@ const questionsEasy = [{
     "image": "/images/Scallops.png"
 },
 ]
-const questionsMed = [{
-    "question": "What is the most consumed manufactured drink in the world?",
-    "answer": ["Tea", "Beer", "Coca-cola", "Pepsi"],
-    "final": 0,
-    "image": ""
-},
-{
-    "question": "A macaron is typically made using which nut?",
-    "answer": ["Almonds", "Pistachios", "Peanuts", "Cashews"],
-    "final": 0,
-    "image": ""
-},
-{
-    "question": "In which country did Tea originate?",
-    "answer": ["Japan", "Thailand", "United Kingdom", "China"],
-    "final": 3,
-    "image": ""
-},
-{
-    "question": "Where did Mulligatawny soup originate?",
-    "answer": ["Malaysia", "India", "Thailand", "China"],
-    "final": 1,
-    "image": ""
-},
-{
-    "question": "Which country has the wine making region known as the Barossa Valley?",
-    "answer": ["France", "Australia", "Germany", "Italy"],
-    "final": 1,
-    "image": ""
-},
-{
-    "question": "What is actually a fruit, not a veggie?",
-    "answer": ["Broccoli", "Tomato", "Potato", "Cauliflower"],
-    "final": 1,
-    "image": ""
-},
-{
-    "question": "What ingredient makes a Martini \"Dirty\"",
-    "answer": ["Finesse", "Olive Brine", "Onion Juice", "Bleu Cheese"],
-    "final": 1,
-    "image": ""
-},
-]
-const questionsHard = [{
-    "question": "If you were in Australia and eating a 'sinker' what would you be having?",
-    "answer": ["Spaghetti", "Pie", "Fries", "Soup"],
-    "final": 1,
-    "image": ""
-},
-{
-    "question": "If you were having a cocktail of Guinness and Champagne what would it be called?",
-    "answer": ["Red Velvet", "Blue Velvet", "Black Velvet", "Gold Velvet"],
-    "final": 2,
-    "image": ""
-},
-{
-    "question": "What fruit is traditionally used in an Eve's Pudding?",
-    "answer": ["Pineapples", "Oranges", "Strawberries", "Apples"],
-    "final": 3,
-    "image": ""
-},
-{
-    "question": "Which country is the origin of the beef stew known as Daube?",
-    "answer": ["Austria", "Sweden", "France", "Germany"],
-    "final": 2,
-    "image": ""
-},
-{
-    "question": "What fast food restaurant is credited with introducing the first modern-day drive-thru window?",
-    "answer": ["Mickey D's", "Wendy's", "Burger King", "Taco Bell"],
-    "final": 1,
-    "image": ""
-},
-{
-    "question": "Which of the following is in the cruciferous vegetable family?",
-    "answer": ["Cabbage", "Tomato", "Cucumber", "Potato"],
-    "final": 0,
-    "image": ""
-},
-{
-    "question": "What is the common name for Allium sativum?",
-    "answer": ["Tomato", "Garlic", "Kale", "Watermelon"],
-    "final": 1,
-    "image": ""
-},
-{
-    "question": "Which of the following is not considered a \"Mother Sauce\"?",
-    "answer": ["Hollandaise", "Bechamel", "Veloute", "Bearnaise"],
-    "final": 3,
-    "image": ""
-},
-{
-    "question": "Where did \"Spam\" originate?",
-    "answer": ["Hawaii", "Mars", "Minnesota", "Tennessee"],
-    "final": 2,
-    "image": ""
-},
-]
-
 
 
 //////create all elements
@@ -180,7 +81,7 @@ const questionsHard = [{
     let gameDes = document.createElement('h2');
     homePage.appendChild(gameDes);
     gameDes.setAttribute('class', 'description');
-    gameDes.innerHTML = "This game will test your food knowledge and hopefully teach you something in the process!"
+    gameDes.innerHTML = `Put Your Food Knowledge to the Test!`
     //enter name
     let nameInput = document.createElement('input');
     homePage.appendChild(nameInput);
@@ -194,7 +95,13 @@ const questionsHard = [{
     let startGame = document.createElement('button');
     startDiv.appendChild(startGame);
     startGame.setAttribute('class', 'button start');
-    startGame.innerHTML = "Easy"
+    startGame.innerHTML = "Easy";
+    //medium button
+    let medButton = document.querySelector('.medium');
+    startDiv.appendChild(medButton);
+    //hard button
+    let hardButton = document.querySelector('.hard');
+    startDiv.appendChild(hardButton);
     //border divs
     let borderDiv1 = document.createElement('div');
     startDiv.appendChild(borderDiv1);
@@ -252,7 +159,6 @@ const questionsHard = [{
     let rightMess = document.createElement('h1');
     rightModal.appendChild(rightMess);
     rightMess.setAttribute('class', 'rightMess');
-    rightMess.innerHTML = "You Got it Right, Nice Job!"
     //image
     let rightPic = document.createElement('img');
     rightModal.appendChild(rightPic);
@@ -275,7 +181,6 @@ const questionsHard = [{
      let wrongMess = document.createElement('h1');
      wrongModal.appendChild(wrongMess);
      wrongMess.setAttribute('class', 'wrongMess');
-     wrongMess.innerHTML = "Nice Try, You'll Get it Next time!"
     //image
     let wrongPic = document.createElement('img');
     wrongModal.appendChild(wrongPic);
@@ -303,11 +208,11 @@ const questionsHard = [{
     let roundOverMess = document.createElement('h1');
     roundOver.appendChild(roundOverMess);
     roundOverMess.setAttribute('class', 'rOMess');
-    roundOverMess.innerHTML = "Great Job, This Round is Over!"
+    roundOverMess.innerHTML = "Round Over"
     //button to go to win screen when round is over
     let goToWin = document.createElement('button');
     roundOver.appendChild(goToWin);
-    goToWin.setAttribute('class', 'button')
+    goToWin.setAttribute('class', 'button showFinal')
     goToWin.innerHTML = "Show Final Score!"
     //scoreboard container
     let sCContainer = document.createElement('div');
@@ -412,6 +317,8 @@ const getStarted = () => {
     hPContainer.classList.toggle('show-modal')
     //populate first question into trivia modal
     randomQuestion()
+    wrongMess.innerHTML = `Woops! Missed That One, ${playerName.innerHTML}.`
+    rightMess.innerHTML = `Nailed It, ${playerName.innerHTML}!`
 }
 //event listener for startGame button
 startGame.addEventListener('click',getStarted)
@@ -473,11 +380,13 @@ if((counter > 4) && (isCorrect.includes(true))) {
     rMContainer.classList.toggle('show-modal')
     rOContainer.classList.toggle('show-modal')
     roundOver.appendChild(rightMess)
+    rightMess.innerHTML = "You Got The Last One Right!"
     counter = 0
 }else if ((counter > 4) && (isCorrect.includes(true) == false)){
     wMContainer.classList.toggle('show-modal')
     rOContainer.classList.toggle('show-modal')
     roundOver.appendChild(wrongMess)
+    wrongMess.innerHTML = "You Almost Had It On That Last One"
     counter = 0
 } 
   //add to the counter every time an answer is chosen
@@ -522,14 +431,6 @@ const winner = () => {
 }
 //event listener to go to the win screen button
 goToWin.addEventListener('click', winner)
-
-
-
-
-
-
-
-
 
 
 //event handler to bring you from win screen back to homepage
