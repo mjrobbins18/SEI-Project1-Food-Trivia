@@ -79,19 +79,6 @@ startGame.innerHTML = "Start Questions"
 //back to Home button
 let backHome = document.querySelector('.home')
 startDiv.appendChild(backHome);
-//border divs
-let borderDiv1 = document.createElement('div');
-startDiv.appendChild(borderDiv1);
-borderDiv1.setAttribute('class', 'border');
-let borderDiv2 = document.createElement('div');
-startDiv.appendChild(borderDiv2);
-borderDiv2.setAttribute('class', 'border')
-let borderDiv3 = document.createElement('div');
-startDiv.appendChild(borderDiv3);
-borderDiv3.setAttribute('class', 'border')
-let borderDiv4 = document.createElement('div');
-startDiv.appendChild(borderDiv4);
-borderDiv4.setAttribute('class', 'border')
 /////Trivia Modal Container
 let tContainer = document.createElement('div');
 document.body.appendChild(tContainer);
@@ -335,10 +322,8 @@ pointsNum.innerHTML = pointsPlus;
 //inserts the random trivia/joke into the right/wrong modal
 rightModal.appendChild(randJoke1);
 wrongModal.appendChild(randJoke);
-//if right/wrong modal opacity = 1 then generate random trivia
+//hides the trivia container
 tContainer.classList.toggle('show-modal')
-
-
 
 if((counter > 4) && (isCorrect.includes(true))) {
 rMContainer.classList.toggle('show-modal')
