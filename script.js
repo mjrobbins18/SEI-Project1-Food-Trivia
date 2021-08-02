@@ -102,6 +102,39 @@ const questionsEasy = [{
     //hard button
     let hardButton = document.querySelector('.hard');
     startDiv.appendChild(hardButton);
+   //leaderboard button
+   let toLead = document.createElement('button');
+   homePage.appendChild(toLead);
+   toLead.setAttribute('class', 'button start');
+   toLead.innerHTML = "Leaderboard"
+    //leaderboard container
+    let lBC = document.createElement('div');
+    document.body.appendChild(lBC);
+    lBC.setAttribute('class', 'container lBC')
+    //leaderboard Modal
+    let leaderBoard = document.createElement('div');
+    lBC.appendChild(leaderBoard);
+    leaderBoard.setAttribute('class', 'content leaderBoard')
+    //leaderboard heading
+    let lBHeading = document.createElement('h1');
+    leaderBoard.appendChild(lBHeading);
+    lBHeading.setAttribute('class', 'heading');
+    lBHeading.innerHTML = "Leaderboard"
+    //total-leaderboard
+    let totalLB = document.createElement('div');
+    leaderBoard.appendChild(totalLB);
+    totalLB.setAttribute('class', 'score totalLB');
+    totalLB.innerHTML = `<strong>Total Points</strong>`;
+    //player- leaderboard
+    let playerLB = document.createElement('div');
+    leaderBoard.appendChild(playerLB);
+    playerLB.setAttribute('class', 'playerLB');
+    playerLB.innerHTML = "Player Name"
+    //back to homepage button
+    let lBButton = document.createElement('button');
+    leaderBoard.appendChild(lBButton);
+    lBButton.setAttribute('class', 'button start hPLB');
+    lBButton.innerHTML = "Back to Home";
     //border divs
     let borderDiv1 = document.createElement('div');
     startDiv.appendChild(borderDiv1);
@@ -227,26 +260,16 @@ const questionsEasy = [{
     scoreBoard.appendChild(playerName);
     playerName.setAttribute('class', 'player');
     playerName.innerHTML = "Player 1"
-    //Right-score div
-    let scoreRight = document.createElement('div');
-    scoreBoard.appendChild(scoreRight);
-    scoreRight.setAttribute('class', 'score rightScore');
-    scoreRight.innerHTML = `<strong>Right</strong>`;
-    //right score number
-    let scoreRightNum = document.createElement('div');
-    scoreRight.appendChild(scoreRightNum);
-    scoreRightNum.setAttribute('class', 'rightNum')
-    scoreRightNum.innerHTML = 0;
-    //Wrong score div
-    let scoreWrong = document.createElement('div');
-    scoreBoard.appendChild(scoreWrong);
-    scoreWrong.setAttribute('class', 'score wrongScore');
-    scoreWrong.innerHTML = `<strong>Wrong</strong>`;
-    //wrong score number
-    let scoreWrongNum = document.createElement('div');
-    scoreWrong.appendChild(scoreWrongNum);
-    scoreWrongNum.setAttribute('class', 'wrongNum');
-    scoreWrongNum.innerHTML = 0;
+    //total points div
+    let points = document.createElement('div');
+    scoreBoard.appendChild(points);
+    points.setAttribute('class', 'score points');
+    points.innerHTML = `<strong>Total Points</strong>`;
+    //total points number
+    let pointsNum = document.createElement('div');
+    points.appendChild(pointsNum);
+    pointsNum.setAttribute('class', 'pointsNum')
+    pointsNum.innerHTML = 0;
     /////Win Screen Container
     let wSContainer = document.createElement('div');
     document.body.appendChild(wSContainer);
@@ -278,12 +301,27 @@ const questionsEasy = [{
 
 
 //modal functionality  
+//leaderboard button event handler
+const toggleLB = () => {
+    lBC.classList.toggle('show-modal')
+    hPContainer.classList.toggle('show-modal');
+}
+
+
+
+//leaderboard button event listener
+toLead.addEventListener('click', toggleLB);
+//back to home from leaderboard
+lBButton.addEventListener('click', toggleLB);
+
+
 
 // function that shows the homepage when it is loaded
 const loadHome = () => {
     hPContainer.classList.toggle('show-modal')
 }
 body.addEventListener('load',loadHome())
+
 
 
 
@@ -328,9 +366,8 @@ startGame.addEventListener('click',getStarted)
 
 
 
-//right and wrong score counter
-let rightAns = 0;
-let wrongAns = 0;
+//score counter
+let pointsPlus = 0;
 //answer buttons take you to the right answer modal if it is the right answer
 const chooseAnswer = (event) => {
 //random food joke generator!//got API to log and render
@@ -359,13 +396,12 @@ fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/ra
 let isCorrect = questionsEasy.map(item => event.target.innerHTML == item.final)
     if (isCorrect.includes(true)) {
         rMContainer.classList.toggle('show-modal')
-        rightAns += 1
+        pointsPlus += 2
     } else {
         wMContainer.classList.toggle('show-modal')
-        wrongAns += 1
+        pointsPlus -= 1
     }
-scoreWrongNum.innerHTML = wrongAns;
-scoreRightNum.innerHTML = rightAns;
+pointsNum.innerHTML = pointsPlus;
 
 //inserts the random trivia/joke into the right/wrong modal
 rightModal.appendChild(randJoke1);

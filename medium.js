@@ -204,26 +204,16 @@ let playerName = document.createElement('div');
 scoreBoard.appendChild(playerName);
 playerName.setAttribute('class', 'player');
 playerName.innerHTML = "Player 1"
-//Right-score div
-let scoreRight = document.createElement('div');
-scoreBoard.appendChild(scoreRight);
-scoreRight.setAttribute('class', 'score rightScore');
-scoreRight.innerHTML = `<strong>Right</strong>`;
-//right score number
-let scoreRightNum = document.createElement('div');
-scoreRight.appendChild(scoreRightNum);
-scoreRightNum.setAttribute('class', 'rightNum')
-scoreRightNum.innerHTML = 0;
-//Wrong score div
-let scoreWrong = document.createElement('div');
-scoreBoard.appendChild(scoreWrong);
-scoreWrong.setAttribute('class', 'score wrongScore');
-scoreWrong.innerHTML = `<strong>Wrong</strong>`;
-//wrong score number
-let scoreWrongNum = document.createElement('div');
-scoreWrong.appendChild(scoreWrongNum);
-scoreWrongNum.setAttribute('class', 'wrongNum');
-scoreWrongNum.innerHTML = 0;
+//total points div
+let points = document.createElement('div');
+scoreBoard.appendChild(points);
+points.setAttribute('class', 'score points');
+points.innerHTML = `<strong>Total Points</strong>`;
+//total points number
+let pointsNum = document.createElement('div');
+points.appendChild(pointsNum);
+pointsNum.setAttribute('class', 'pointsNum')
+pointsNum.innerHTML = 0;
 /////Win Screen Container
 let wSContainer = document.createElement('div');
 document.body.appendChild(wSContainer);
@@ -305,9 +295,8 @@ startGame.addEventListener('click',getStarted)
 
 
 
-//right and wrong score counter
-let rightAns = 0;
-let wrongAns = 0;
+//score counter
+let pointsPlus = 0;
 //answer buttons take you to the right answer modal if it is the right answer
 const chooseAnswer = (event) => {
 //random food joke generator!//got API to log and render
@@ -334,15 +323,14 @@ console.error(err);
 //logic for guessing right or wrong answer and increases numbers on scoreboard
 //either brings up right modal or wrong modal
 let isCorrect = questionsMed.map(item => event.target.innerHTML == item.final)
-if (isCorrect.includes(true)) {
-    rMContainer.classList.toggle('show-modal')
-    rightAns += 1
-} else {
-    wMContainer.classList.toggle('show-modal')
-    wrongAns += 1
-}
-scoreWrongNum.innerHTML = wrongAns;
-scoreRightNum.innerHTML = rightAns;
+    if (isCorrect.includes(true)) {
+        rMContainer.classList.toggle('show-modal')
+        pointsPlus += 4
+    } else {
+        wMContainer.classList.toggle('show-modal')
+        pointsPlus -= 1
+    }
+pointsNum.innerHTML = pointsPlus;
 
 //inserts the random trivia/joke into the right/wrong modal
 rightModal.appendChild(randJoke1);

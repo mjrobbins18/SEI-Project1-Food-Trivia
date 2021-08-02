@@ -45,7 +45,8 @@ body {
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
   }
-/* Answer Buttons */
+
+  /* Answer Buttons */
 .ansCont {
     flex: 20%;
     padding: 15%;
@@ -74,30 +75,26 @@ cursor: pointer;
 
 /* ScoreBoard */
 .scoreBoard {
-    display: grid;
-grid-template-columns:120px 120px 120px;
-grid-template-rows: 40px 40px 40px;
+height: 250px;
+width: 150px;
+
 }
 .player {
-    grid-column-start: 2;
+  
     font-size: 30px;
 }
-.rightScore {
+.points {
     font-size: 20px;
-    line-height: 2;
-    grid-column-start: 1;
-    grid-row-start: 2;
+    line-height: 4;
 }
-.wrongScore {
-    font-size: 20px;
-    line-height: 2;
-    grid-column-start: 3;
-    grid-row-start: 2;
-}
-
+ /* trivia container */
 .questionPic {
     height: 150px;
     width: 150px;
+}
+.tRCont {
+    display: flex;
+    flex-direction: row;
 }
 
 /* Input bar */
@@ -173,6 +170,49 @@ textarea:focus{
     background: white;
     color: black
 }
+
+/* Leaderboard */
+.leaderBoard {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px; 
+    grid-template-rows: 60px 60px 60px 60px 60px 60px 60px 60px;
+
+}
+.heading {
+    grid-row-start: 1;
+    grid-column-start: 2;
+}
+
+.totalLB {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    width: 170px;
+}
+.playerLB {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    width: 200px;
+    border-bottom: 2px solid white;
+}
+.hPLB {
+    grid-row-start: 8;
+    grid-column-start: 2;
+    width: 200px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* Next Question Button */
 .next {
