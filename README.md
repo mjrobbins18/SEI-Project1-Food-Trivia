@@ -20,7 +20,7 @@
 
 ![question](./Wireframes/qs.png)
 
-**Each round is 5 questions long, and number of points for correct guesses are awarded based on the difficulty of the questions.**
+**Each round is 5 questions long, and number of points for correct guesses are awarded based on the difficulty of the questions. Between each question on the right and wrong screen, a random food joke is generated from an API and printed on screen**
 
 ![right](./Wireframes/right.png)
 
@@ -117,5 +117,6 @@ I was able to finish this first project with the help of my instructors at Gener
 - [Stack Overflow](https://stackoverflow.com/)
 - [BLR Deisgn Blog](https://blr.design/blog/multiple-modals/)
 - [CSS Tricks](https://css-tricks.com/)
+- [Spoonacular Food/Nutrition API- Random Food Joke API](https://rapidapi.com/spoonacular/api/recipe-food-nutrition)
 
 -----

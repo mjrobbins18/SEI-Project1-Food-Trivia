@@ -63,7 +63,7 @@ const questionsEasy = [{
 
 
 //////create all elements
-
+let body = document.querySelector('body')
 ///////////homepage modal container
 let hPContainer = document.createElement('div');
 document.body.appendChild(hPContainer);
@@ -97,11 +97,6 @@ startDiv.appendChild(medButton);
 //hard button
 let hardButton = document.querySelector('.hard');
 startDiv.appendChild(hardButton);
-//leaderboard button
-let toLead = document.createElement('button');
-homePage.appendChild(toLead);
-toLead.setAttribute('class', 'button start');
-toLead.innerHTML = "Leaderboard"
 ////////easy modal container
 let eMContainer = document.createElement('div');
 document.body.appendChild(eMContainer);
@@ -119,7 +114,7 @@ welcomeMessage1.innerHTML = "Welcome to Max's Food Trivia Game"
 let easyDes = document.createElement('h2');
 easyModal.appendChild(easyDes);
 easyDes.setAttribute('class', 'description');
-easyDes.innerHTML = `Easy Questions Everyone Should Know". `
+easyDes.innerHTML = `Easy Questions Everyone Should Know.`
 //enter name
 let nameInput = document.createElement('input');
 easyModal.appendChild(nameInput);
@@ -139,43 +134,6 @@ let backHome = document.createElement('button');
 backHome.setAttribute('class', 'button start');
 startDiv1.appendChild(backHome);
 backHome.innerHTML = "Back to Home"
-////////leaderboard container
-let lBC = document.createElement('div');
-document.body.appendChild(lBC);
-lBC.setAttribute('class', 'container lBC')
-//leaderboard Modal
-let leaderBoard = document.createElement('div');
-lBC.appendChild(leaderBoard);
-leaderBoard.setAttribute('class', 'content leaderBoard')
-//leaderboard heading
-let lBHeading = document.createElement('h1');
-leaderBoard.appendChild(lBHeading);
-lBHeading.setAttribute('class', 'heading');
-lBHeading.innerHTML = "Leaderboard"
-//total-leaderboard
-let totalLB = document.createElement('div');
-leaderBoard.appendChild(totalLB);
-totalLB.setAttribute('class', 'score totalLB');
-totalLB.innerHTML = `<strong>Total Points</strong>`;
-//player- leaderboard
-let playerLB = document.createElement('div');
-leaderBoard.appendChild(playerLB);
-playerLB.setAttribute('class', 'playerLB');
-playerLB.innerHTML = "Player"
-//date- leaderboard
-let dateLB = document.createElement('div');
-leaderBoard.appendChild(dateLB);
-dateLB.setAttribute('class', 'dateLB');
-dateLB.innerHTML = "Date"
-//grabbing the table from the html
-let leaderTable = document.querySelector('table')
-leaderBoard.appendChild(leaderTable)
-let body = document.querySelector('body');
-//back to homepage button
-let lBButton = document.createElement('button');
-leaderBoard.appendChild(lBButton);
-lBButton.setAttribute('class', 'button start hPLB');
-lBButton.innerHTML = "Back to Home";
 /////Trivia Modal Container
 let tContainer = document.createElement('div');
 document.body.appendChild(tContainer);
@@ -337,18 +295,6 @@ playAgain.setAttribute('class', 'button playAgain');
 //modal functionality  
 
 
-//leaderboard button event handler
-const toggleLB = () => {
-    lBC.classList.toggle('show-modal')
-    hPContainer.classList.toggle('show-modal');
-}
-//leaderboard button event listener
-toLead.addEventListener('click', toggleLB);
-//back to home from leaderboard
-lBButton.addEventListener('click', toggleLB);
-
-
-
 // function that shows the homepage when it is loaded
 const loadHome = () => {
     hPContainer.classList.toggle('show-modal')
@@ -465,13 +411,13 @@ tContainer.classList.toggle('show-modal')
 
 
 
-if((counter > 4) && (isCorrect.includes(true))) {
+if((counter >= 5) && (isCorrect.includes(true))) {
     rMContainer.classList.toggle('show-modal')
     rOContainer.classList.toggle('show-modal')
     roundOver.appendChild(rightMess)
     rightMess.innerHTML = "You Got The Last One Right!"
     counter = 0
-}else if ((counter > 4) && (isCorrect.includes(true) == false)){
+}else if ((counter >= 5) && (isCorrect.includes(true) == false)){
     wMContainer.classList.toggle('show-modal')
     rOContainer.classList.toggle('show-modal')
     roundOver.appendChild(wrongMess)
@@ -496,9 +442,6 @@ const nextQuestion = (event) => {
         wMContainer.classList.toggle('show-modal')
     }
     randomQuestion()
- 
-   //if we've done 5 quesionts then bring up winner screen
-
 }
 //event listener for next question buttons
 nextBTN.forEach(button => button.addEventListener('click',nextQuestion))
@@ -521,11 +464,6 @@ const winner = () => {
 //event listener to go to the win screen button
 goToWin.addEventListener('click', winner)
 
-//object to hold the player data
-let playerObject = [
-    {'Player': playerName.innerHTML, 
-     'Points': pointsPlus}
-]
 //event handler to bring you from win screen back to homepage
 const replay = () => {
     loadHome()
@@ -534,58 +472,12 @@ const replay = () => {
     rightModal.appendChild(rightMess);
     wrongModal.appendChild(wrongMess);
     tContainer.appendChild(sCContainer);
-    // pointsNum.innerHTML = 0;
-    // pointsPlus = 0;
-    console.log(playerObject)
-//sorting the leaderboard to display the highest score on top
-const sortBoard = () => {
-    playerObject.sort((a,b) => (b.Points - a.Points))
-}
-sortBoard()
-//filling the table head with the keys of the player object 
-let data = Object.keys(playerObject[0])
-const fillLBH = (leaderTable) => {
-    let tableHead = leaderTable.createTHead();
-    return tableHead;
-}
-fillLBH(leaderTable);
-const leaderBoardHead = (leaderTable) => {
-    let leaderHead = leaderTable.createTHead();
-    let row = leaderHead.insertRow();
-    for (let key of data) {
-        let th = document.createElement('th');
-        let headText = document.createTextNode(key);
-        th.appendChild(headText);
-        row.appendChild(th);
-    }
-} 
-
-//filling the leaderboard with the data from the player object 
-const fillLeaderBoard = (leaderTable,data) => {
-    for (let element of data) {
-        let row = leaderTable.insertRow();
-        for (key in element) {
-            let cell = row.insertCell();
-            let text = document.createTextNode(element[key]);
-            cell.appendChild(text);
-        }
-    }
-    
-}
-//calling the leaderboard filling functions
-leaderBoardHead(leaderTable,data);
-fillLeaderBoard(leaderTable,playerObject);
-localStorage.setItem(("Player",playerName.innerHTML),("Points",pointsPlus))
-console.log(localStorage)
+    pointsNum.innerHTML = 0;
+    pointsPlus = 0;
 }
 
 //event listener for play again button to bring you back to homepage
 playAgain.addEventListener('click',replay)
-
-
-
-
-
 
 
 

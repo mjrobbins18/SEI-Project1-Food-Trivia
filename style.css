@@ -166,7 +166,8 @@ textarea:focus{
     color: black
 }
 
-/* Leaderboard */
+/* Leaderboard- STILL WORKING ON THIS!
+
 .leaderBoard {
     display: grid;
     grid-template-columns: 120px 120px 120px 120px; 
@@ -200,13 +201,14 @@ textarea:focus{
 }
 .hPLB {
     grid-row-start: 8;
-    grid-column-start: 2;
+    grid-column-start: 1;
     width: 200px;
+    margin-left: 100px;
 
 }
 
 
-
+ */
 
 
 
