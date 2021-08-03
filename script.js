@@ -3,61 +3,61 @@ const questionsEasy = [{
     "question": "Clam Chowder originated in which country?",
     "answer": ["Australia", "United Kingdom", "USA", "Spain"],
     "final": "USA",
-    "image": "/images/Earth.png"
+    "image": "./images/Earth.png"
 },
 {
     "question": "What is this cut of meat called?",
     "answer": ["Chop", "Wing", "Nugget", "Steak"],
     "final": "Steak",
-    "image": "/images/Meat.png" 
+    "image": "./images/Meat.png" 
 },
 {
     "question": "How many secret herbs and spices are there in the Colonel's recipe?",
     "answer": ["Eleven", "At least a million", "Infinity", "Zero"],
     "final": "Eleven",
-    "image": "/images/KFC.png"
+    "image": "./images/KFC.png"
 },
 {
     "question": "What essential nutrient do you get from meat, poultry, eggs, and fish?",
     "answer": ["Caffeine", "Protein", "Peanut Butter", "Gainz"],
     "final": "Protein",
-    "image": "/images/MeatFish.png"
+    "image": "./images/MeatFish.png"
 },
 {
     "question": "What bean that originated in East Asia is used for miso, oil, and tofu?",
     "answer": ["Lima Bean", "Magic Bean", "Peanut", "Soy Bean"],
     "final": "Soy Bean",
-    "image": "/images/Ramen.png"
+    "image": "./images/Ramen.png"
 },
 {
     "question": "Who is this celebrity chef?",
     "answer": ["Max Robbins", "Gordon Ramsay", "The Swedish Chef", "Emeril Lagasse"],
     "final": "The Swedish Chef",
-    "image": "/images/SC.png"
+    "image": "./images/SC.png"
 },
 {
     "question": "What is the main ingredient in an omelette du fromage?",
     "answer": ["Cheese", "Love", "Peppers", "Egg Shells"],
     "final": "Cheese",
-    "image": "/images/Eggs.png"
+    "image": "./images/Eggs.png"
 },
 {
     "question": "Who is the famous mascot for McDonald's?",
     "answer": ["Ronald McDonald", "Jon Snow", "Caillou", "Naruto"],
     "final": "Ronald McDonald",
-    "image": "/images/RM.png"
+    "image": "./images/RM.png"
 },
 {
     "question": "What is the name of this vegetable?",
     "answer": ["Broccoli", "Bok-Choy", "Carrot", "Hearty Radish"],
     "final": "Bok-Choy",
-    "image": "/images/Bok.png"
+    "image": "./images/Bok.png"
 },
 {
     "question": "What is this ingredient called?",
     "answer": ["No Idea", "Chicken of the Sea", "Scallops", "Bananas"],
     "final": "Scallops",
-    "image": "/images/Scallops.png"
+    "image": "./images/Scallops.png"
 },
 ]
 

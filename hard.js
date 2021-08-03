@@ -2,55 +2,55 @@ const questionsHard = [{
     "question": "If you were in Australia and eating a 'sinker' what would you be having?",
     "answer": ["Spaghetti", "Pie", "Fries", "Soup"],
     "final": "Pie",
-    "image": "/images/Australia.png"
+    "image": "./images/Australia.png"
 },
 {
     "question": "If you were having a cocktail of Guinness and Champagne what would it be called?",
     "answer": ["Red Velvet", "Blue Velvet", "Black Velvet", "Gold Velvet"],
     "final": "Black Velvet",
-    "image": "/images/Guinness.png"
+    "image": "./images/Guinness.png"
 },
 {
     "question": "What fruit is traditionally used in an Eve's Pudding?",
     "answer": ["Pineapples", "Oranges", "Strawberries", "Apples"],
     "final": "Apples",
-    "image": "/images/evepudding.jpeg"
+    "image": "./images/evepudding.jpeg"
 },
 {
     "question": "Which country is the origin of the beef stew known as Daube?",
     "answer": ["Austria", "Sweden", "France", "Germany"],
     "final": "France",
-    "image": "/images/Daube.jpeg"
+    "image": "./images/Daube.jpeg"
 },
 {
     "question": "What fast food restaurant is credited with introducing the first modern-day drive-thru window?",
     "answer": ["Mickey D's", "Wendy's", "Burger King", "Taco Bell"],
     "final": "Wendy's",
-    "image": "/images/fastfood.png"
+    "image": "./images/fastfood.png"
 },
 {
     "question": "Which of the following is in the cruciferous vegetable family?",
     "answer": ["Cabbage", "Tomato", "Cucumber", "Potato"],
     "final": "Cabbage",
-    "image": "/images/veggies.png"
+    "image": "./images/veggies.png"
 },
 {
     "question": "What is the common name for Allium sativum?",
     "answer": ["Tomato", "Garlic", "Kale", "Watermelon"],
     "final": "Garlic",
-    "image": "/images/veggies.png"
+    "image": "./images/veggies.png"
 },
 {
     "question": "Which of the following is not considered a \"Mother Sauce\"?",
     "answer": ["Hollandaise", "Bechamel", "Veloute", "Bearnaise"],
     "final": "Bearnaise",
-    "image": "/images/ketchup.png"
+    "image": "./images/ketchup.png"
 },
 {
     "question": "Where did \"Spam\" originate?",
     "answer": ["Hawaii", "Mars", "Minnesota", "Tennessee"],
     "final": "Minnesota",
-    "image": "/images/Spam.png"
+    "image": "./images/Spam.png"
 },
 ]
 //////create all elements

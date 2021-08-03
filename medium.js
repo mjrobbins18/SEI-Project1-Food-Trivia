@@ -2,43 +2,43 @@ const questionsMed = [{
     "question": "What is the most consumed manufactured drink in the world?",
     "answer": ["Tea", "Beer", "Coca-cola", "Pepsi"],
     "final": "Tea",
-    "image": "/images/Beverages.png"
+    "image": "./images/Beverages.png"
 },
 {
     "question": "A macaron is typically made using which nut?",
     "answer": ["Almonds", "Pistachios", "Peanuts", "Cashews"],
     "final": "Almonds",
-    "image": "/images/Macaron.png"
+    "image": "./images/Macaron.png"
 },
 {
     "question": "In which country did Tea originate?",
     "answer": ["Japan", "Thailand", "United Kingdom", "China"],
     "final": "China",
-    "image": "/images/Tea.png"
+    "image": "./images/Tea.png"
 },
 {
     "question": "Where did Mulligatawny soup originate?",
     "answer": ["Malaysia", "India", "Thailand", "China"],
     "final": "India",
-    "image": "/images/Mulligatawny.jpeg"
+    "image": "./images/Mulligatawny.jpeg"
 },
 {
     "question": "Which country has the wine making region known as the Barossa Valley?",
     "answer": ["France", "Australia", "Germany", "Italy"],
     "final": "Australia",
-    "image": "/images/Wine.png"
+    "image": "./images/Wine.png"
 },
 {
     "question": "What is actually a fruit, not a veggie?",
     "answer": ["Broccoli", "Tomato", "Potato", "Cauliflower"],
     "final": "Tomato",
-    "image": "/images/FV.png"
+    "image": "./images/FV.png"
 },
 {
     "question": "What ingredient makes a Martini \"Dirty\"",
     "answer": ["Finesse", "Olive Brine", "Onion Juice", "Bleu Cheese"],
     "final": "Olive Brine",
-    "image": "/images/Martini.png"
+    "image": "./images/Martini.png"
 },
 ]
 
