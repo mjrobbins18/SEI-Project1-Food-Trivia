@@ -1,5 +1,5 @@
 body {
-    background-image: url('/SEI-Project1-Food-Trivia/images/woodBack.jpg');
+    background-image: url('./images/woodBack.jpg');
     background-size: 1200px;
     display: flex;
     align-content: center;
