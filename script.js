@@ -224,7 +224,7 @@ rightMess.setAttribute('class', 'rightMess');
 let rightPic = document.createElement('img');
 rightModal.appendChild(rightPic);
 rightPic.setAttribute('class', 'rightPic');
-rightPic.src = "/images/Gordon1.png"
+rightPic.src = "./images/Gordon1.png"
 //next question
 let next1 = document.createElement('button');
 rightModal.appendChild(next1);
@@ -246,7 +246,7 @@ wrongMess.setAttribute('class', 'wrongMess');
 let wrongPic = document.createElement('img');
 wrongModal.appendChild(wrongPic);
 wrongPic.setAttribute('class', 'wrongPic');
-wrongPic.src = "/images/Wrong.gif"
+wrongPic.src = "./images/Wrong.gif"
 //random joke/trivia for wrong modal
 let randJoke1 = document.createElement('p');
 randJoke1.setAttribute('class', 'joke');
