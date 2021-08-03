@@ -63,7 +63,7 @@ const questionsEasy = [{
 
 
 //////create all elements
-    let body = document.querySelector('body');
+
 ///////////homepage modal container
 let hPContainer = document.createElement('div');
 document.body.appendChild(hPContainer);
@@ -167,6 +167,10 @@ let dateLB = document.createElement('div');
 leaderBoard.appendChild(dateLB);
 dateLB.setAttribute('class', 'dateLB');
 dateLB.innerHTML = "Date"
+//grabbing the table from the html
+let leaderTable = document.querySelector('table')
+leaderBoard.appendChild(leaderTable)
+let body = document.querySelector('body');
 //back to homepage button
 let lBButton = document.createElement('button');
 leaderBoard.appendChild(lBButton);
@@ -283,7 +287,6 @@ scoreBoard.setAttribute('class', 'content scoreBoard');
 let playerName = document.createElement('div');
 scoreBoard.appendChild(playerName);
 playerName.setAttribute('class', 'player');
-playerName.innerHTML = "Player 1"
 //total points div
 let points = document.createElement('div');
 scoreBoard.appendChild(points);
@@ -320,63 +323,11 @@ playAgain.setAttribute('class', 'button playAgain');
 
 
 
-//working on leaderboard functionality
-//object to hold the player data
-let playerObject = [
-    {"Player": "max",
-     "Date": "1/22/33",
-     "Points": 323},
-     {"Player": "benji",
-     "Date": "1/2/23",
-     "Points": 623},
-     {"Player": "jesus",
-     "Date": "1/1/63",
-     "Points": 123},
-]
-const sortBoard = () => {
-    playerObject.sort((a,b) => (b.Points - a.Points))
-}
-sortBoard()
-//grabbing the table from the html
-let leaderTable = document.querySelector('table')
-leaderBoard.appendChild(leaderTable)
-//filling the table head with the keys of the player object 
-let data = Object.keys(playerObject[0])
-const fillLBH = (leaderTable) => {
-    let tableHead = leaderTable.createTHead();
-    return tableHead;
-}
-fillLBH(leaderTable);
-const leaderBoardHead = (leaderTable) => {
-    let leaderHead = leaderTable.createTHead();
-    let row = leaderHead.insertRow();
-    for (let key of data) {
-        let th = document.createElement('th');
-        let headText = document.createTextNode(key);
-        th.appendChild(headText);
-        row.appendChild(th);
-    }
-} 
-//filling the leaderboard with the data from the player object 
-const fillLeaderBoard = (leaderTable,data) => {
-    for (let element of data) {
-        let row = leaderTable.insertRow();
-        for (key in element) {
-            let cell = row.insertCell();
-            let text = document.createTextNode(element[key]);
-            cell.appendChild(text);
-        }
-    }
-    
-}
-//calling the leaderboard filling functions
-leaderBoardHead(leaderTable,data);
-fillLeaderBoard(leaderTable,playerObject);
-
-//sorting the leaderboard to display the highest score on top
 
 
-//pushing the player data into the player object
+
+
+
 
 
 
@@ -438,17 +389,28 @@ let backToHome = () => {
 }
 backHome.addEventListener('click', backToHome)
 
+
+
+
+
+
+
+
 //event handler for starting the game
 ////enter's name into playerName
 ////pulls up first question
 const getStarted = () => {
     playerName.innerHTML = nameInput.value;
+   //puts the players name into the player object, which puts it into the table
     tContainer.classList.toggle('show-modal')
     eMContainer.classList.toggle('show-modal')
     //populate first question into trivia modal
     randomQuestion()
     wrongMess.innerHTML = `Woops! Missed That One, ${playerName.innerHTML}.`
     rightMess.innerHTML = `Nailed It, ${playerName.innerHTML}!`
+    
+
+
 }
 //event listener for startGame button
 startGame.addEventListener('click',getStarted)
@@ -500,7 +462,6 @@ rightModal.appendChild(randJoke1);
 wrongModal.appendChild(randJoke);
 //if right/wrong modal opacity = 1 then generate random trivia
 tContainer.classList.toggle('show-modal')
-console.log(rMContainer.classList)
 
 
 
@@ -549,10 +510,10 @@ const winner = () => {
     sCContainer.classList.toggle('show-modal')
     rOContainer.classList.toggle('show-modal')
     wSContainer.appendChild(sCContainer)
-    if (scoreRightNum.innerHTML > scoreWrongNum.innerHTML) {
-        endMessage.innerHTML = `Great Job ${playerName.innerHTML}, You Got ${scoreRightNum.innerHTML} Questions Right!`
-    } else if(scoreRightNum.innerHTML < scoreWrong.innerHTML) {
-        endMessage.innerHTML = `Yikes ${playerName.innerHTML}, You Missed ${scoreWrongNum.innerHTML} Questions. Hit The Books.`
+    if (pointsNum.innerHTML > 10) {
+        endMessage.innerHTML = `Great Job ${playerName.innerHTML}, You Got ${pointsNum.innerHTML} Points!`
+    } else if(pointsNum.innerHTML < 5) {
+        endMessage.innerHTML = `Yikes ${playerName.innerHTML}, You Only Got ${pointsNum.innerHTML} Points. Hit the Books`
     } else {
         endMessage.innerHTML = `Pretty Good ${playerName.innerHTML}, But You Can Do Better.`
     }
@@ -560,23 +521,66 @@ const winner = () => {
 //event listener to go to the win screen button
 goToWin.addEventListener('click', winner)
 
-
+//object to hold the player data
+let playerObject = [
+    {'Player': playerName.innerHTML, 
+     'Points': pointsPlus}
+]
 //event handler to bring you from win screen back to homepage
 const replay = () => {
     loadHome()
+   
     wSContainer.classList.toggle('show-modal');
     rightModal.appendChild(rightMess);
     wrongModal.appendChild(wrongMess);
     tContainer.appendChild(sCContainer);
-    scoreWrongNum.innerHTML = 0;
-    scoreRightNum.innerHTML = 0;
-    rightAns = 0;
-    wrongAns = 0;
+    // pointsNum.innerHTML = 0;
+    // pointsPlus = 0;
+    console.log(playerObject)
+//sorting the leaderboard to display the highest score on top
+const sortBoard = () => {
+    playerObject.sort((a,b) => (b.Points - a.Points))
+}
+sortBoard()
+//filling the table head with the keys of the player object 
+let data = Object.keys(playerObject[0])
+const fillLBH = (leaderTable) => {
+    let tableHead = leaderTable.createTHead();
+    return tableHead;
+}
+fillLBH(leaderTable);
+const leaderBoardHead = (leaderTable) => {
+    let leaderHead = leaderTable.createTHead();
+    let row = leaderHead.insertRow();
+    for (let key of data) {
+        let th = document.createElement('th');
+        let headText = document.createTextNode(key);
+        th.appendChild(headText);
+        row.appendChild(th);
+    }
+} 
+
+//filling the leaderboard with the data from the player object 
+const fillLeaderBoard = (leaderTable,data) => {
+    for (let element of data) {
+        let row = leaderTable.insertRow();
+        for (key in element) {
+            let cell = row.insertCell();
+            let text = document.createTextNode(element[key]);
+            cell.appendChild(text);
+        }
+    }
+    
+}
+//calling the leaderboard filling functions
+leaderBoardHead(leaderTable,data);
+fillLeaderBoard(leaderTable,playerObject);
+localStorage.setItem(("Player",playerName.innerHTML),("Points",pointsPlus))
+console.log(localStorage)
 }
 
 //event listener for play again button to bring you back to homepage
 playAgain.addEventListener('click',replay)
-
 
 
 
