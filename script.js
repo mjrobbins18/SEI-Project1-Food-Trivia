@@ -276,6 +276,10 @@ playAgain.setAttribute('class', 'button playAgain');
 //grabbing all of my containers
 const containers = document.querySelectorAll('.container')
 let allButtons = document.querySelectorAll('.button')
+//sound for right answer
+let rightAudio = document.querySelector('#right');
+//sound for wrong answer
+let wrongAudio = document.querySelector('#wrong');
 
 function toggleModal() {
 containers.forEach((container) => {
@@ -398,9 +402,11 @@ function chooseAnswer (event) {
 let isCorrect = questionsEasy.map(item => event.target.innerHTML == item.final)
         if (isCorrect.includes(true)) {
             rMContainer.classList.toggle('show-modal')
+            rightAudio.play()
             pointsPlus += 2
     }   else {
             wMContainer.classList.toggle('show-modal')
+            wrongAudio.play()
             pointsPlus -= 1
     }
 //adds the points to the scoreboard

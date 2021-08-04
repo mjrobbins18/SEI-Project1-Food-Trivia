@@ -230,7 +230,12 @@ let playAgain = document.createElement('button');
 winScreen.appendChild(playAgain);
 playAgain.innerHTML = "Play Again!"
 playAgain.setAttribute('class', 'button playAgain');
-let allButtons = document.querySelectorAll('.button')
+//all buttons element
+let allButtons = document.querySelectorAll('.button');
+//sound for right answer
+let rightAudio = document.querySelector('#right');
+//sound for wrong answer
+let wrongAudio = document.querySelector('#wrong');
 
 
 
@@ -331,9 +336,11 @@ function chooseAnswer (event) {
 let isCorrect = questionsHard.map(item => event.target.innerHTML == item.final)
         if (isCorrect.includes(true)) {
             rMContainer.classList.toggle('show-modal')
+            rightAudio.play()
             pointsPlus += 2
     }   else {
             wMContainer.classList.toggle('show-modal')
+            wrongAudio.play()
             pointsPlus -= 1
     }
 //adds the points to the scoreboard

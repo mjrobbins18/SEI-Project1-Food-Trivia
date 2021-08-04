@@ -298,6 +298,8 @@ countDown.setAttribute('class', 'content countDown');
 let rightAudio = document.querySelector('#right');
 //sound for wrong answer
 let wrongAudio = document.querySelector('#wrong');
+//sound for times up
+let overAudio = document.querySelector('#over');
 
 //countdown timer
 let timer;
@@ -315,6 +317,7 @@ function countingDown () {
         countDown.innerHTML = (timeLeft);
     }
     else{
+        overAudio.play()
         stopGame();
     }
 }
