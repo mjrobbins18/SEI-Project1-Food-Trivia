@@ -222,7 +222,7 @@ let playAgain = document.createElement('button');
 winScreen.appendChild(playAgain);
 playAgain.innerHTML = "Play Again!"
 playAgain.setAttribute('class', 'button playAgain');
-
+let allButtons = document.querySelectorAll('.button')
 
 
 
@@ -233,167 +233,186 @@ playAgain.setAttribute('class', 'button playAgain');
 
 //modal functionality  
 
-// function that shows the homepage when it is loaded
-const loadHome = () => {
-hPContainer.classList.toggle('show-modal')
-}
-body.addEventListener('load',loadHome())
-
-
-
-//better randomquestion function that does not repeat questions
-questionArray = [];
-const randomQuestion = () => {
-if (!questionArray.length) {
-for (let i = 0; i < questionsMed.length; i ++) {
-    questionArray.push(i);
-}
-}
-let random = Math.floor(Math.random() * questionArray.length);
-let val = questionArray[random];
-questionArray.splice(random, 1);
-question.innerHTML = questionsMed[val].question;
-questionPic.src = questionsMed[val].image;
-for (let i = 0; i < answerButtons.length; i++) {
-answerButtons[i].innerHTML = questionsMed[val].answer[i]
-} 
-}
-
-
-
-//event handler for starting the game
-////enter's name into playerName
-////pulls up first question
-const getStarted = () => {
-playerName.innerHTML = nameInput.value;
-tContainer.classList.toggle('show-modal')
-// sCContainer.classList.toggle('show-modal')
-hPContainer.classList.toggle('show-modal')
-//populate first question into trivia modal
-randomQuestion()
-wrongMess.innerHTML = `Woops! Missed That One, ${playerName.innerHTML}.`
-rightMess.innerHTML = `Nailed It, ${playerName.innerHTML}!`
-}
-//event listener for startGame button
-startGame.addEventListener('click',getStarted)
-
-
-
-
-
-
-//score counter
-let pointsPlus = 0;
-//answer buttons take you to the right answer modal if it is the right answer
-const chooseAnswer = (event) => {
-//random food joke generator!//got API to log and render
-fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random", {
-"method": "GET",
-"headers": {
-    "x-rapidapi-key": "82af09fd1emsh8ef1df922508a8bp1beb9ajsn7f726e7510b4",
-    "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-}
-})
-.then(res => {
-return res.json()
-})
-.then(res => {
-randJoke.innerHTML = res.text;
-randJoke1.innerHTML = res.text;
-console.log(res.text)
-})
-.catch(err => {
-console.error(err);
-});
-
-
-//logic for guessing right or wrong answer and increases numbers on scoreboard
-//either brings up right modal or wrong modal
-let isCorrect = questionsMed.map(item => event.target.innerHTML == item.final)
-    if (isCorrect.includes(true)) {
-        rMContainer.classList.toggle('show-modal')
-        pointsPlus += 4
-    } else {
-        wMContainer.classList.toggle('show-modal')
-        pointsPlus -= 1
+// random food joke generator!//got API to log and render
+function generateJoke () {
+    fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random", {
+            "method": "GET",
+            "headers": {
+            "x-rapidapi-key": "82af09fd1emsh8ef1df922508a8bp1beb9ajsn7f726e7510b4",
+            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+        }
+    })
+    .then(res => {
+            return res.json()
+    })
+    .then(res => {
+            randJoke.innerHTML = res.text;
+            randJoke1.innerHTML = res.text;
+    })
+    .catch(err => {
+            console.error(err);
+    });
+    rightModal.appendChild(randJoke1);
+    wrongModal.appendChild(randJoke);
     }
-pointsNum.innerHTML = pointsPlus;
 
-//inserts the random trivia/joke into the right/wrong modal
-rightModal.appendChild(randJoke1);
-wrongModal.appendChild(randJoke);
-//hides the trivia container
-tContainer.classList.toggle('show-modal')
 
-if((counter > 4) && (isCorrect.includes(true))) {
-rMContainer.classList.toggle('show-modal')
-rOContainer.classList.toggle('show-modal')
-roundOver.appendChild(rightMess)
-rightMess.innerHTML = "You Got The Last One Right!"
-counter = 0
-}else if ((counter > 4) && (isCorrect.includes(true) == false)){
-wMContainer.classList.toggle('show-modal')
-rOContainer.classList.toggle('show-modal')
-roundOver.appendChild(wrongMess)
-wrongMess.innerHTML = "You Almost Had It On That Last One"
-counter = 0
-} 
-//add to the counter every time an answer is chosen
-counter += 1
-
-}
-answerButtons.forEach(button => button.addEventListener('click',chooseAnswer))
 
 
 //question counter
 let counter = 0;
-//event handler to bring you from the right/wrong screen to the next question
-const nextQuestion = (event) => {
+//score counter
+let pointsPlus = 0;
+//array to hold numbers for random question generator
+let questionArray = [];
+//modal functionality 
+
+// function that shows the homepage when it is loaded
+function loadHome () {
+       hPContainer.classList.toggle('show-modal')
+       generateJoke()
+}
+
+
+//randomquestion function that does not repeat questions
+function randomQuestion () {
+    if (!questionArray.length) {
+        for (let i = 0; i < questionsMed.length; i ++) {
+            questionArray.push(i);
+    }
+}
+let random = Math.floor(Math.random() * questionArray.length);
+let val = questionArray[random];
+        questionArray.splice(random, 1);
+        question.innerHTML = questionsMed[val].question;
+        questionPic.src = questionsMed[val].image;
+    for (let i = 0; i < answerButtons.length; i++) {
+        answerButtons[i].innerHTML = questionsMed[val].answer[i]
+}   
+}
+
+////enter's name into playerName
+////pulls up first question
+function getStarted () {
+        playerName.innerHTML = nameInput.value;
+        player = playerName.innerHTML;
+        if (!nameInput.value){
+            alert('Please put in your name')
+        }else if(nameInput.value){
+//puts the players name into the player object, which puts it into the table
+        tContainer.classList.toggle('show-modal')
+        hPContainer.classList.toggle('show-modal')
+//message for right and wrong guesses
+        wrongMess.innerHTML = `Woops! Missed That One, ${playerName.innerHTML}.`
+        rightMess.innerHTML = `Nailed It,              ${playerName.innerHTML}!`
+        }
+//populate first question into trivia modal
+        randomQuestion()
+
+
+}
+
+
+
+
+//answer buttons take you to the right answer modal if it is the right answer
+function chooseAnswer (event) {
+
+//logic for guessing right or wrong answer and increases numbers on scoreboard
+//either brings up right modal or wrong modal
+let isCorrect = questionsMed.map(item => event.target.innerHTML == item.final)
+        if (isCorrect.includes(true)) {
+            rMContainer.classList.toggle('show-modal')
+            pointsPlus += 2
+    }   else {
+            wMContainer.classList.toggle('show-modal')
+            pointsPlus -= 1
+    }
+//adds the points to the scoreboard
+        pointsNum.innerHTML = pointsPlus;
+//inserts the random trivia/joke into the right/wrong modal
+
+
+
+//displays the right or wrong message modal based on the guess
+        if((counter >= 5) && (isCorrect.includes(true))) {
+            rMContainer.classList.toggle('show-modal')
+            rOContainer.classList.toggle('show-modal')
+            roundOver.appendChild(rightMess)
+            rightMess.innerHTML = "You Got The Last One Right!"
+            counter = 0
+}       else if ((counter >= 5) && (isCorrect.includes(true) == false)){
+            wMContainer.classList.toggle('show-modal')
+            rOContainer.classList.toggle('show-modal')
+            roundOver.appendChild(wrongMess)
+            wrongMess.innerHTML = "You Almost Had It On That Last One"
+            counter = 0
+} 
+//add to the question counter every time an answer is chosen
+        counter ++
 tContainer.classList.toggle('show-modal')
-if (event.target == next1){
-    rMContainer.classList.toggle('show-modal')
-}else if (event.target == next2) {
-    wMContainer.classList.toggle('show-modal')
 }
-randomQuestion()
 
-//if we've done 5 quesionts then bring up winner screen
 
+
+
+//function to bring you from the right/wrong screen to the next question
+function nextQuestion  (event)  {
+    tContainer.classList.toggle('show-modal')
+        if (event.target == next1){
+            rMContainer.classList.toggle('show-modal')
+    }   else if (event.target == next2) {
+            wMContainer.classList.toggle('show-modal')
+    }
+    randomQuestion()
+    generateJoke()
 }
-//event listener for next question buttons
+
+
+
+//function to go to the win screen from the round over screen
+function winner  ()  {
+    wSContainer.classList.toggle('show-modal')
+    sCContainer.classList.toggle('show-modal')
+    rOContainer.classList.toggle('show-modal')
+  
+   
+    wSContainer.appendChild(sCContainer)
+    if (pointsNum.innerHTML > 10) {
+        endMessage.innerHTML = `Great Job ${playerName.innerHTML}, You Scored ${pointsNum.innerHTML} Points!`
+    } else if(pointsNum.innerHTML < 5) {
+        endMessage.innerHTML = `Yikes ${playerName.innerHTML}, You Scored ${pointsNum.innerHTML} Points. Hit the Books`
+    }
+}
+
+
+//function to bring you from win screen back to homepage
+function replay () {
+    loadHome()
+    wSContainer.classList.toggle('show-modal');
+    rightModal.appendChild(rightMess);
+    wrongModal.appendChild(wrongMess);
+    tContainer.appendChild(sCContainer);
+    pointsNum.innerHTML = 0;
+    pointsPlus = 0;
+    
+}
+
+
+//event propagation for all buttons
+function moveModal (event) {
+
+    if(event.target === startGame) {
+        getStarted()
+    }else if(event.target === goToWin) {
+        winner()
+    }else if(event.target === playAgain) {
+        replay()
+    }
+    }
+    
+//event listeners
+document.addEventListener('load',loadHome())
+allButtons.forEach(button => button.addEventListener('click', moveModal))
+answerButtons.forEach(button => button.addEventListener('click',chooseAnswer))
 nextBTN.forEach(button => button.addEventListener('click',nextQuestion))
-
-
-//event handler to go to the win screen from the round over screen
-const winner = () => {
-wSContainer.classList.toggle('show-modal')
-sCContainer.classList.toggle('show-modal')
-rOContainer.classList.toggle('show-modal')
-wSContainer.appendChild(sCContainer)
-if (scoreRightNum.innerHTML > scoreWrongNum.innerHTML) {
-    endMessage.innerHTML = `Great Job ${playerName.innerHTML}, You Got ${scoreRightNum.innerHTML} Questions Right!`
-} else if(scoreRightNum.innerHTML < scoreWrong.innerHTML) {
-    endMessage.innerHTML = `Yikes ${playerName.innerHTML}, You Missed ${scoreWrongNum.innerHTML} Questions. Hit The Books.`
-} else {
-    endMessage.innerHTML = `Pretty Good ${playerName.innerHTML}, But You Can Do Better.`
-}
-}
-//event listener to go to the win screen button
-goToWin.addEventListener('click', winner)
-
-
-//event handler to bring you from win screen back to homepage
-const replay = () => {
-loadHome()
-wSContainer.classList.toggle('show-modal');
-rightModal.appendChild(rightMess);
-wrongModal.appendChild(wrongMess);
-tContainer.appendChild(sCContainer);
-scoreWrongNum.innerHTML = 0;
-scoreRightNum.innerHTML = 0;
-rightAns = 0;
-wrongAns = 0;
-}
-
-//event listener for play again button to bring you back to homepage
-playAgain.addEventListener('click',replay)
