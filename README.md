@@ -8,6 +8,12 @@
 [Play the Game Here!](https://mjrobbins18.github.io/SEI-Project1-Food-Trivia/
 )
 ------
+## User Stories
+
+As a budding chef, or foodie, or food and beverage aficionado, players are looking for games that test their knowledge on the subjects that they are passionate about. This game helps them to continue to expand their knowledge and learn new and exciting things.
+
+---------
+
 
 ## Gameplay
 **The player chooses from easy, medium, and hard difficulty questions.**
@@ -37,7 +43,7 @@
 
 ------
 
-# Functionality
+# Functionality/Technology Used
  
   **The main functionality in this game comes from the question randomizer:**
 
@@ -100,12 +106,13 @@ This code maps through the `questionsEasy` array and compares the correct answer
 
 -----
 
-# Stretch Goals- Work in Progress
+# Stretch Goals- Major Hurdles/Work in Progress
 
-- Timed gameplay
-- Leaderboard
+- Timed gameplay- working on a rapid fire question round with a timer
+- Leaderboard- I still haven't fully figured this out and am currently working on it
 - Levels
-- Adding Questions
+- Added an API that generates random food jokes
+- Adding Questions- will be adding more as I continue to update
 
 ------
 
