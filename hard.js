@@ -225,10 +225,6 @@ winScreen.setAttribute('class', 'content winScreen');
 let endMessage = document.createElement('h1');
 winScreen.appendChild(endMessage);
 endMessage.setAttribute('class', 'endMessage');
-//image- good/bad
-let endImage = document.createElement('img');
-winScreen.appendChild(endImage);
-endImage.setAttribute('class', 'endImage');
 //button for play again- brings back to home
 let playAgain = document.createElement('button');
 winScreen.appendChild(playAgain);

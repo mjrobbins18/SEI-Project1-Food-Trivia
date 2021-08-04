@@ -1,44 +1,159 @@
-const questionsMed = [{
-    "question": "What is the most consumed manufactured drink in the world?",
-    "answer": ["Tea", "Beer", "Coca-cola", "Pepsi"],
-    "final": "Tea",
-    "image": "./images/Beverages.png"
+const questionsRapid = [{
+    "question": "Clam Chowder originated in which country?",
+    "answer": ["Australia", "United Kingdom", "USA", "Spain"],
+    "final": "USA",
+    "image": "./images/Earth.png"
 },
 {
-    "question": "A macaron is typically made using which nut?",
-    "answer": ["Almonds", "Pistachios", "Peanuts", "Cashews"],
-    "final": "Almonds",
-    "image": "./images/Macaron.png"
+    "question": "What is this cut of meat called?",
+    "answer": ["Chop", "Wing", "Nugget", "Steak"],
+    "final": "Steak",
+    "image": "./images/Meat.png" 
 },
 {
-    "question": "In which country did Tea originate?",
-    "answer": ["Japan", "Thailand", "United Kingdom", "China"],
-    "final": "China",
-    "image": "./images/Tea.png"
+    "question": "How many secret herbs and spices are there in the Colonel's recipe?",
+    "answer": ["Eleven", "At least a million", "Infinity", "Zero"],
+    "final": "Eleven",
+    "image": "./images/KFC.png"
 },
 {
-    "question": "Where did Mulligatawny soup originate?",
-    "answer": ["Malaysia", "India", "Thailand", "China"],
-    "final": "India",
-    "image": "./images/Mulligatawny.jpeg"
+    "question": "What essential nutrient do you get from meat, poultry, eggs, and fish?",
+    "answer": ["Caffeine", "Protein", "Peanut Butter", "Gainz"],
+    "final": "Protein",
+    "image": "./images/MeatFish.png"
 },
 {
-    "question": "Which country has the wine making region known as the Barossa Valley?",
-    "answer": ["France", "Australia", "Germany", "Italy"],
-    "final": "Australia",
-    "image": "./images/Wine.png"
+    "question": "What bean that originated in East Asia is used for miso, oil, and tofu?",
+    "answer": ["Lima Bean", "Magic Bean", "Peanut", "Soy Bean"],
+    "final": "Soy Bean",
+    "image": "./images/Ramen.png"
 },
 {
-    "question": "What is actually a fruit, not a veggie?",
-    "answer": ["Broccoli", "Tomato", "Potato", "Cauliflower"],
-    "final": "Tomato",
-    "image": "./images/FV.png"
+    "question": "Who is this celebrity chef?",
+    "answer": ["Max Robbins", "Gordon Ramsay", "The Swedish Chef", "Emeril Lagasse"],
+    "final": "The Swedish Chef",
+    "image": "./images/SC.png"
 },
 {
-    "question": "What ingredient makes a Martini \"Dirty\"",
-    "answer": ["Finesse", "Olive Brine", "Onion Juice", "Bleu Cheese"],
-    "final": "Olive Brine",
-    "image": "./images/Martini.png"
+    "question": "What is the main ingredient in an omelette du fromage?",
+    "answer": ["Cheese", "Love", "Peppers", "Egg Shells"],
+    "final": "Cheese",
+    "image": "./images/Eggs.png"
+},
+{
+    "question": "Who is the famous mascot for McDonald's?",
+    "answer": ["Ronald McDonald", "Jon Snow", "Caillou", "Naruto"],
+    "final": "Ronald McDonald",
+    "image": "./images/RM.png"
+},
+{
+    "question": "What is the name of this vegetable?",
+    "answer": ["Broccoli", "Bok-Choy", "Carrot", "Hearty Radish"],
+    "final": "Bok-Choy",
+    "image": "./images/Bok.png"
+},
+{
+    "question": "What is this ingredient called?",
+    "answer": ["No Idea", "Chicken of the Sea", "Scallops", "Bananas"],
+    "final": "Scallops",
+    "image": "./images/Scallops.png"
+},
+{
+
+"question": "What is the most consumed manufactured drink in the world?",
+"answer": ["Tea", "Beer", "Coca-cola", "Pepsi"],
+"final": "Tea",
+"image": "./images/Beverages.png"
+},
+{
+"question": "A macaron is typically made using which nut?",
+"answer": ["Almonds", "Pistachios", "Peanuts", "Cashews"],
+"final": "Almonds",
+"image": "./images/Macaron.png"
+},
+{
+"question": "In which country did Tea originate?",
+"answer": ["Japan", "Thailand", "United Kingdom", "China"],
+"final": "China",
+"image": "./images/Tea.png"
+},
+{
+"question": "Where did Mulligatawny soup originate?",
+"answer": ["Malaysia", "India", "Thailand", "China"],
+"final": "India",
+"image": "./images/Mulligatawny.jpeg"
+},
+{
+"question": "Which country has the wine making region known as the Barossa Valley?",
+"answer": ["France", "Australia", "Germany", "Italy"],
+"final": "Australia",
+"image": "./images/Wine.png"
+},
+{
+"question": "What is actually a fruit, not a veggie?",
+"answer": ["Broccoli", "Tomato", "Potato", "Cauliflower"],
+"final": "Tomato",
+"image": "./images/FV.png"
+},
+{
+"question": "What ingredient makes a Martini \"Dirty\"",
+"answer": ["Finesse", "Olive Brine", "Onion Juice", "Bleu Cheese"],
+"final": "Olive Brine",
+"image": "./images/Martini.png"
+},
+{
+    "question": "If you were in Australia and eating a 'sinker' what would you be having?",
+    "answer": ["Spaghetti", "Pie", "Fries", "Soup"],
+    "final": "Pie",
+    "image": "./images/Australia.png"
+},
+{
+    "question": "If you were having a cocktail of Guinness and Champagne what would it be called?",
+    "answer": ["Red Velvet", "Blue Velvet", "Black Velvet", "Gold Velvet"],
+    "final": "Black Velvet",
+    "image": "./images/Guinness.png"
+},
+{
+    "question": "What fruit is traditionally used in an Eve's Pudding?",
+    "answer": ["Pineapples", "Oranges", "Strawberries", "Apples"],
+    "final": "Apples",
+    "image": "./images/evepudding.jpeg"
+},
+{
+    "question": "Which country is the origin of the beef stew known as Daube?",
+    "answer": ["Austria", "Sweden", "France", "Germany"],
+    "final": "France",
+    "image": "./images/Daube.jpeg"
+},
+{
+    "question": "What fast food restaurant is credited with introducing the first modern-day drive-thru window?",
+    "answer": ["Mickey D's", "Wendy's", "Burger King", "Taco Bell"],
+    "final": "Wendy's",
+    "image": "./images/fastfood.png"
+},
+{
+    "question": "Which of the following is in the cruciferous vegetable family?",
+    "answer": ["Cabbage", "Tomato", "Cucumber", "Potato"],
+    "final": "Cabbage",
+    "image": "./images/veggies.png"
+},
+{
+    "question": "What is the common name for Allium sativum?",
+    "answer": ["Tomato", "Garlic", "Kale", "Watermelon"],
+    "final": "Garlic",
+    "image": "./images/veggies.png"
+},
+{
+    "question": "Which of the following is not considered a \"Mother Sauce\"?",
+    "answer": ["Hollandaise", "Bechamel", "Veloute", "Bearnaise"],
+    "final": "Bearnaise",
+    "image": "./images/ketchup.png"
+},
+{
+    "question": "Where did \"Spam\" originate?",
+    "answer": ["Hawaii", "Mars", "Minnesota", "Tennessee"],
+    "final": "Minnesota",
+    "image": "./images/Spam.png"
 },
 ]
 
@@ -61,7 +176,7 @@ welcomeMessage.innerHTML = "Welcome to Max's Food Trivia Game"
 let gameDes = document.createElement('h2');
 homePage.appendChild(gameDes);
 gameDes.setAttribute('class', 'description');
-gameDes.innerHTML = `Moderately Difficult Questions for People That Call Themselves "Foodies". `
+gameDes.innerHTML = `Test Your Food Knowledge Against The Clock!`
 //enter name
 let nameInput = document.createElement('input');
 homePage.appendChild(nameInput);
@@ -108,58 +223,6 @@ for(let i =0; i < 4; i++) {
 }
 //nodelist with buttons in it
 let answerButtons = document.querySelectorAll('.answer')
-/////Right Modal Container
-let rMContainer = document.createElement('div');
-document.body.appendChild(rMContainer);
-rMContainer.setAttribute('class', 'container rMCont');
-////Right Modal
-let rightModal = document.createElement('div');
-rMContainer.appendChild(rightModal);
-rightModal.setAttribute('class', 'content right');
-//random trivia/joke from api
-let randJoke = document.createElement('p');
-randJoke.setAttribute('class', 'joke');
-//you got it right!
-let rightMess = document.createElement('h1');
-rightModal.appendChild(rightMess);
-rightMess.setAttribute('class', 'rightMess');
-//image
-let rightPic = document.createElement('img');
-rightModal.appendChild(rightPic);
-rightPic.setAttribute('class', 'rightPic');
-rightPic.src = "/images/Gordon1.png"
-//next question
-let next1 = document.createElement('button');
-rightModal.appendChild(next1);
-next1.innerHTML = "Next Question!";
-next1.setAttribute('class', 'button next wrongBTN');
-//Wrong Modal Container
-let wMContainer = document.createElement('div');
-document.body.appendChild(wMContainer);
-wMContainer.setAttribute('class','container wMCont')
-////Wrong Modal
-let wrongModal = document.createElement('div');
-wMContainer.appendChild(wrongModal);
-wrongModal.setAttribute('class', 'content wrong');
- //sorry, you missed that one
- let wrongMess = document.createElement('h1');
- wrongModal.appendChild(wrongMess);
- wrongMess.setAttribute('class', 'wrongMess');
-//image
-let wrongPic = document.createElement('img');
-wrongModal.appendChild(wrongPic);
-wrongPic.setAttribute('class', 'wrongPic');
-wrongPic.src = "/images/Wrong.gif"
-//random joke/trivia for wrong modal
-let randJoke1 = document.createElement('p');
-randJoke1.setAttribute('class', 'joke');
-//next question
-let next2 = document.createElement('button');
-wrongModal.appendChild(next2);
-next2.innerHTML = "Next Question!";
-next2.setAttribute('class', 'button next wrongBTN')
-//grab both of the next buttons
-let nextBTN = document.querySelectorAll('.next')
 //round over modal container
 let rOContainer = document.createElement('div');
 document.body.appendChild(rOContainer);
@@ -213,50 +276,48 @@ winScreen.setAttribute('class', 'content winScreen');
 let endMessage = document.createElement('h1');
 winScreen.appendChild(endMessage);
 endMessage.setAttribute('class', 'endMessage');
+//image- good/bad
+let endImage = document.createElement('img');
+winScreen.appendChild(endImage);
+endImage.setAttribute('class', 'endImage');
 //button for play again- brings back to home
 let playAgain = document.createElement('button');
 winScreen.appendChild(playAgain);
 playAgain.innerHTML = "Play Again!"
 playAgain.setAttribute('class', 'button playAgain');
 let allButtons = document.querySelectorAll('.button')
+//countdown timer container
+let countDownContainer = document.createElement('div');
+countDownContainer.setAttribute('class', 'content countDown');
+tContainer.appendChild(countDownContainer)
+//countdown timer modal
+let countDown = document.createElement('div');
+countDownContainer.appendChild(countDown);
+countDown.setAttribute('class', 'content countDown');
+//sound for right answer
+let rightAudio = document.querySelector('#right');
+//sound for wrong answer
+let wrongAudio = document.querySelector('#wrong');
 
-
-
-
-
-
-
-
-//modal functionality  
-
-// random food joke generator!//got API to log and render
-function generateJoke () {
-    fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random", {
-            "method": "GET",
-            "headers": {
-            "x-rapidapi-key": "82af09fd1emsh8ef1df922508a8bp1beb9ajsn7f726e7510b4",
-            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-        }
-    })
-    .then(res => {
-            return res.json()
-    })
-    .then(res => {
-            randJoke.innerHTML = res.text;
-            randJoke1.innerHTML = res.text;
-    })
-    .catch(err => {
-            console.error(err);
-    });
-    rightModal.appendChild(randJoke1);
-    wrongModal.appendChild(randJoke);
+//countdown timer
+let timer;
+let timeLeft = 30;
+//function to stop the game when the timer hits 0
+function stopGame () {
+    tContainer.classList.toggle('show-modal');
+    rOContainer.classList.toggle('show-modal');
+    clearInterval(timer)
+}
+//function for the countdown, and stops when it gets to 0
+function countingDown () {
+    timeLeft = timeLeft - 1;
+    if(timeLeft >= 0){
+        countDown.innerHTML = (timeLeft);
     }
-
-
-
-
-//question counter
-let counter = 0;
+    else{
+        stopGame();
+    }
+}
 //score counter
 let pointsPlus = 0;
 //array to hold numbers for random question generator
@@ -266,48 +327,45 @@ let questionArray = [];
 // function that shows the homepage when it is loaded
 function loadHome () {
        hPContainer.classList.toggle('show-modal')
-       generateJoke()
 }
 
 
 //randomquestion function that does not repeat questions
 function randomQuestion () {
     if (!questionArray.length) {
-        for (let i = 0; i < questionsMed.length; i ++) {
+        for (let i = 0; i < questionsRapid.length; i ++) {
             questionArray.push(i);
     }
 }
 let random = Math.floor(Math.random() * questionArray.length);
 let val = questionArray[random];
         questionArray.splice(random, 1);
-        question.innerHTML = questionsMed[val].question;
-        questionPic.src = questionsMed[val].image;
+        question.innerHTML = questionsRapid[val].question;
+        questionPic.src = questionsRapid[val].image;
     for (let i = 0; i < answerButtons.length; i++) {
-        answerButtons[i].innerHTML = questionsMed[val].answer[i]
+        answerButtons[i].innerHTML = questionsRapid[val].answer[i]
 }   
 }
 
 ////enter's name into playerName
 ////pulls up first question
 function getStarted () {
+    //puts the players name into the player object
         playerName.innerHTML = nameInput.value;
         player = playerName.innerHTML;
         if (!nameInput.value){
             alert('Please put in your name')
         }else if(nameInput.value){
-//puts the players name into the player object, which puts it into the table
         tContainer.classList.toggle('show-modal')
         hPContainer.classList.toggle('show-modal')
-//message for right and wrong guesses
-        wrongMess.innerHTML = `Woops! Missed That One, ${playerName.innerHTML}.`
-        rightMess.innerHTML = `Nailed It,              ${playerName.innerHTML}!`
-        }
 //populate first question into trivia modal
         randomQuestion()
-
+//start the countdown timer       
+        timer = setInterval(countingDown, 1000);
+        countingDown();
 
 }
-
+}
 
 
 
@@ -316,54 +374,18 @@ function chooseAnswer (event) {
 
 //logic for guessing right or wrong answer and increases numbers on scoreboard
 //either brings up right modal or wrong modal
-let isCorrect = questionsMed.map(item => event.target.innerHTML == item.final)
+let isCorrect = questionsRapid.map(item => event.target.innerHTML == item.final)
         if (isCorrect.includes(true)) {
-            rMContainer.classList.toggle('show-modal')
+            rightAudio.play()
             pointsPlus += 2
     }   else {
-            wMContainer.classList.toggle('show-modal')
+            wrongAudio.play()
             pointsPlus -= 1
     }
 //adds the points to the scoreboard
         pointsNum.innerHTML = pointsPlus;
-//inserts the random trivia/joke into the right/wrong modal
-
-
-
-//displays the right or wrong message modal based on the guess
-        if((counter >= 5) && (isCorrect.includes(true))) {
-            rMContainer.classList.toggle('show-modal')
-            rOContainer.classList.toggle('show-modal')
-            roundOver.appendChild(rightMess)
-            rightMess.innerHTML = "You Got The Last One Right!"
-            counter = 0
-}       else if ((counter >= 5) && (isCorrect.includes(true) == false)){
-            wMContainer.classList.toggle('show-modal')
-            rOContainer.classList.toggle('show-modal')
-            roundOver.appendChild(wrongMess)
-            wrongMess.innerHTML = "You Almost Had It On That Last One"
-            counter = 0
-} 
-//add to the question counter every time an answer is chosen
-        counter ++
-tContainer.classList.toggle('show-modal')
+        randomQuestion()
 }
-
-
-
-
-//function to bring you from the right/wrong screen to the next question
-function nextQuestion  (event)  {
-    tContainer.classList.toggle('show-modal')
-        if (event.target == next1){
-            rMContainer.classList.toggle('show-modal')
-    }   else if (event.target == next2) {
-            wMContainer.classList.toggle('show-modal')
-    }
-    randomQuestion()
-    generateJoke()
-}
-
 
 
 //function to go to the win screen from the round over screen
@@ -386,8 +408,6 @@ function winner  ()  {
 function replay () {
     loadHome()
     wSContainer.classList.toggle('show-modal');
-    rightModal.appendChild(rightMess);
-    wrongModal.appendChild(wrongMess);
     tContainer.appendChild(sCContainer);
     pointsNum.innerHTML = 0;
     pointsPlus = 0;
@@ -411,4 +431,3 @@ function moveModal (event) {
 document.addEventListener('load',loadHome())
 allButtons.forEach(button => button.addEventListener('click', moveModal))
 answerButtons.forEach(button => button.addEventListener('click',chooseAnswer))
-nextBTN.forEach(button => button.addEventListener('click',nextQuestion))

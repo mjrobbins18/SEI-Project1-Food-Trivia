@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Trivia Home</title>
+    <title>Rapid Fire</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" type="image/png" href="./images/fish.png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
-<link rel="icon" type = "image/png" href="./images/chicken.png">
 </head>
-
 <body>
-    <button class = "button start medium" onclick="location.href = './medium.html'">Medium</button>
-<button class = "button start hard" onclick="location.href = './hard.html'">Hard</button>
-<button class = "button start rapid" onclick="location.href = './rapidfire.html'">Rapid Fire Round</button>
-    <script src = "script.js"></script>
+    <audio id = "right" src="./sounds/right.wav"></audio>
+    <audio id = "wrong" src="./sounds/Wrong.wav"></audio>
+    <audio id = "countDown" src="./sounds/countdown.wav"></audio>
+    <button class = "button start home" onclick="location.href = './index.html'">Back to Home</button>
+    <script src = "rapidfire.js"></script>
 </body>
 </html>

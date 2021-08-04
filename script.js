@@ -95,6 +95,9 @@ startDiv.appendChild(medButton);
 //hard button
 let hardButton = document.querySelector('.hard');
 startDiv.appendChild(hardButton);
+//rapidFire Button
+let rapidButton = document.querySelector('.rapid');
+startDiv.appendChild(rapidButton);
 ////////easy modal container
 let eMContainer = document.createElement('div');
 document.body.appendChild(eMContainer);
@@ -265,10 +268,6 @@ winScreen.setAttribute('class', 'content winScreen');
 let endMessage = document.createElement('h1');
 winScreen.appendChild(endMessage);
 endMessage.setAttribute('class', 'endMessage');
-//image- good/bad
-let endImage = document.createElement('img');
-winScreen.appendChild(endImage);
-endImage.setAttribute('class', 'endImage');
 //button for play again- brings back to home
 let playAgain = document.createElement('button');
 winScreen.appendChild(playAgain);
@@ -284,6 +283,17 @@ containers.forEach((container) => {
 })
 
 }
+
+
+
+
+
+
+
+
+
+
+
 // random food joke generator!//got API to log and render
 function generateJoke () {
     fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random", {
