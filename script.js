@@ -291,13 +291,6 @@ containers.forEach((container) => {
 
 
 
-
-
-
-
-
-
-
 // random food joke generator!//got API to log and render
 function generateJoke () {
     fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random", {

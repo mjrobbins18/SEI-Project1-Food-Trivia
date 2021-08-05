@@ -412,6 +412,8 @@ function replay () {
     tContainer.appendChild(sCContainer);
     pointsNum.innerHTML = 0;
     pointsPlus = 0;
+    //using this until i can figure out how to reset my clock.
+    location.reload()
 }
 
 
