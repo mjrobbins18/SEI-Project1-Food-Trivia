@@ -280,13 +280,8 @@ let allButtons = document.querySelectorAll('.button')
 let rightAudio = document.querySelector('#right');
 //sound for wrong answer
 let wrongAudio = document.querySelector('#wrong');
-
-function toggleModal() {
-containers.forEach((container) => {
-    container.classList.toggle('show-modal')
-})
-
-}
+//variable for show-modal class
+let showModalClass = 'show-modal'
 
 
 
@@ -327,7 +322,7 @@ let questionArray = [];
 
 // function that shows the homepage when it is loaded
 function loadHome () {
-       hPContainer.classList.toggle('show-modal')
+       hPContainer.classList.toggle(showModalClass)
        generateJoke()
 }
 
@@ -351,15 +346,15 @@ let val = questionArray[random];
 
 //toggle easy modal
 function openEasy () {
-        eMContainer.classList.toggle('show-modal')
-        hPContainer.classList.toggle('show-modal')
+        eMContainer.classList.toggle(showModalClass)
+        hPContainer.classList.toggle(showModalClass)
 
 }
 
 //back to homepage from easy modal
 function backToHome () {
-        eMContainer.classList.toggle('show-modal')
-        hPContainer.classList.toggle('show-modal')
+        eMContainer.classList.toggle(showModalClass)
+        hPContainer.classList.toggle(showModalClass)
 }
 
 
@@ -372,8 +367,8 @@ function getStarted () {
             alert('Please put in your name')
         }else if(nameInput.value){
 //puts the players name into the player object, which puts it into the table
-        tContainer.classList.toggle('show-modal')
-        eMContainer.classList.toggle('show-modal')
+        tContainer.classList.toggle(showModalClass)
+        eMContainer.classList.toggle(showModalClass)
 //message for right and wrong guesses
         wrongMess.innerHTML = `Woops! Missed That One, ${playerName.innerHTML}.`
         rightMess.innerHTML = `Nailed It,              ${playerName.innerHTML}!`
@@ -394,11 +389,11 @@ function chooseAnswer (event) {
 //either brings up right modal or wrong modal
 let isCorrect = questionsEasy.map(item => event.target.innerHTML == item.final)
         if (isCorrect.includes(true)) {
-            rMContainer.classList.toggle('show-modal')
+            rMContainer.classList.toggle(showModalClass)
             rightAudio.play()
             pointsPlus += 2
     }   else {
-            wMContainer.classList.toggle('show-modal')
+            wMContainer.classList.toggle(showModalClass)
             wrongAudio.play()
             pointsPlus -= 1
     }
@@ -410,21 +405,21 @@ let isCorrect = questionsEasy.map(item => event.target.innerHTML == item.final)
 
 //displays the right or wrong message modal based on the guess
         if((counter >= 5) && (isCorrect.includes(true))) {
-            rMContainer.classList.toggle('show-modal')
-            rOContainer.classList.toggle('show-modal')
+            rMContainer.classList.toggle(showModalClass)
+            rOContainer.classList.toggle(showModalClass)
             roundOver.appendChild(rightMess)
             rightMess.innerHTML = "You Got The Last One Right!"
             counter = 0
 }       else if ((counter >= 5) && (isCorrect.includes(true) == false)){
-            wMContainer.classList.toggle('show-modal')
-            rOContainer.classList.toggle('show-modal')
+            wMContainer.classList.toggle(showModalClass)
+            rOContainer.classList.toggle(showModalClass)
             roundOver.appendChild(wrongMess)
             wrongMess.innerHTML = "You Almost Had It On That Last One"
             counter = 0
 } 
 //add to the question counter every time an answer is chosen
         counter ++
-tContainer.classList.toggle('show-modal')
+tContainer.classList.toggle(showModalClass)
 }
 
 
@@ -446,9 +441,9 @@ function nextQuestion  (event)  {
 
 //function to go to the win screen from the round over screen
 function winner  ()  {
-    wSContainer.classList.toggle('show-modal')
-    sCContainer.classList.toggle('show-modal')
-    rOContainer.classList.toggle('show-modal')
+    wSContainer.classList.toggle(showModalClass)
+    sCContainer.classList.toggle(showModalClass)
+    rOContainer.classList.toggle(showModalClass)
   
    
     wSContainer.appendChild(sCContainer)
@@ -463,7 +458,7 @@ function winner  ()  {
 //function to bring you from win screen back to homepage
 function replay () {
     loadHome()
-    wSContainer.classList.toggle('show-modal');
+    wSContainer.classList.toggle(showModalClass);
     rightModal.appendChild(rightMess);
     wrongModal.appendChild(wrongMess);
     tContainer.appendChild(sCContainer);

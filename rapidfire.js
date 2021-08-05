@@ -298,14 +298,17 @@ countDown.setAttribute('class', 'content countDown');
 let rightAudio = document.querySelector('#right');
 //sound for wrong answer
 let wrongAudio = document.querySelector('#wrong');
+//variable for show-modal class
+let showModalClass = 'show-modal'
+
 
 //countdown timer
 let timer;
 let timeLeft = 30;
 //function to stop the game when the timer hits 0
 function stopGame () {
-    tContainer.classList.toggle('show-modal');
-    rOContainer.classList.toggle('show-modal');
+    tContainer.classList.toggle(showModalClass);
+    rOContainer.classList.toggle(showModalClass);
     clearInterval(timer)
 }
 //function for the countdown, and stops when it gets to 0
@@ -326,7 +329,7 @@ let questionArray = [];
 
 // function that shows the homepage when it is loaded
 function loadHome () {
-       hPContainer.classList.toggle('show-modal')
+       hPContainer.classList.toggle(showModalClass)
 }
 
 
@@ -356,8 +359,8 @@ function getStarted () {
         if (!nameInput.value){
             alert('Please put in your name')
         }else if(nameInput.value){
-        tContainer.classList.toggle('show-modal')
-        hPContainer.classList.toggle('show-modal')
+        tContainer.classList.toggle(showModalClass)
+        hPContainer.classList.toggle(showModalClass)
 //populate first question into trivia modal
         randomQuestion()
 //start the countdown timer       
@@ -390,9 +393,9 @@ let isCorrect = questionsRapid.map(item => event.target.innerHTML == item.final)
 
 //function to go to the win screen from the round over screen
 function winner  ()  {
-    wSContainer.classList.toggle('show-modal')
-    sCContainer.classList.toggle('show-modal')
-    rOContainer.classList.toggle('show-modal')
+    wSContainer.classList.toggle(showModalClass)
+    sCContainer.classList.toggle(showModalClass)
+    rOContainer.classList.toggle(showModalClass)
     countDownContainer.classList.toggle('container')
    
     wSContainer.appendChild(sCContainer)
@@ -407,7 +410,7 @@ function winner  ()  {
 //function to bring you from win screen back to homepage
 function replay () {
     loadHome()
-    wSContainer.classList.toggle('show-modal');
+    wSContainer.classList.toggle(showModalClass);
     countDownContainer.classList.toggle('container');
     tContainer.appendChild(sCContainer);
     pointsNum.innerHTML = 0;
