@@ -115,7 +115,11 @@ This code maps through the `questionsEasy` array and compares the correct answer
 - Adding Questions- will be adding more as I continue to update
 
 ------
+# Installation Instructions
 
+No installation required.
+
+-------
 # Resources
 
 I was able to finish this first project with the help of my instructors at General Assembly, as well as:
