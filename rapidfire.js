@@ -288,8 +288,8 @@ playAgain.setAttribute('class', 'button playAgain');
 let allButtons = document.querySelectorAll('.button')
 //countdown timer container
 let countDownContainer = document.createElement('div');
-countDownContainer.setAttribute('class', 'content countDown');
-tContainer.appendChild(countDownContainer)
+countDownContainer.setAttribute('class', 'content countDownCont');
+sCContainer.insertBefore(countDownContainer,scoreBoard)
 //countdown timer modal
 let countDown = document.createElement('div');
 countDownContainer.appendChild(countDown);
@@ -298,8 +298,6 @@ countDown.setAttribute('class', 'content countDown');
 let rightAudio = document.querySelector('#right');
 //sound for wrong answer
 let wrongAudio = document.querySelector('#wrong');
-//sound for times up
-let overAudio = document.querySelector('#over');
 
 //countdown timer
 let timer;
@@ -317,7 +315,6 @@ function countingDown () {
         countDown.innerHTML = (timeLeft);
     }
     else{
-        overAudio.play()
         stopGame();
     }
 }
@@ -396,7 +393,7 @@ function winner  ()  {
     wSContainer.classList.toggle('show-modal')
     sCContainer.classList.toggle('show-modal')
     rOContainer.classList.toggle('show-modal')
-  
+    countDownContainer.classList.toggle('container')
    
     wSContainer.appendChild(sCContainer)
     if (pointsNum.innerHTML > 10) {
@@ -411,10 +408,10 @@ function winner  ()  {
 function replay () {
     loadHome()
     wSContainer.classList.toggle('show-modal');
+    countDownContainer.classList.toggle('container');
     tContainer.appendChild(sCContainer);
     pointsNum.innerHTML = 0;
     pointsPlus = 0;
-    
 }
 
 

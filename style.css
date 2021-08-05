@@ -315,3 +315,21 @@ textarea:focus{
     background: white;
     color: black;
 }
+
+/* Countdown Clock */
+.countDownCont {
+    height: 90px;
+    width: 100px;
+    background: red;
+
+
+}
+.countDown {
+    height: 80px;
+    width: 80px;
+    font-size: 40px;
+    align-content: center;
+    text-align: center;
+   background-color: rgb(206, 163, 108);
+   color: red;
+}
